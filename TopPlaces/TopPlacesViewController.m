@@ -7,6 +7,7 @@
 //
 
 #import "TopPlacesViewController.h"
+#import "FlickrFetcher.h"
 
 @interface TopPlacesViewController ()
 
@@ -14,16 +15,13 @@
 
 @implementation TopPlacesViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (IBAction)fetchButtonClicked:(UIButton *)sender forEvent:(UIEvent *)event {
+    NSArray *response = [FlickrFetcher topPlaces];
+    for (id item in response) {
+        NSLog(@"%@", item);
+    }
+    
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
