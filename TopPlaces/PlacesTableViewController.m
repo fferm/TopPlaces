@@ -13,6 +13,9 @@
 @property (nonatomic, strong) NSArray *places;
 @property (nonatomic, strong) NSArray *sortedCities;
 @property (nonatomic, strong) NSDictionary *countryForCity;
+
+NSInteger placeSort(id obj1, id obj2, void *context);
+- (void) initData;
 @end
 
 @implementation PlacesTableViewController
@@ -30,37 +33,11 @@
     return self;
 }
 
-NSInteger placeSort(id obj1, id obj2, void *context)
-{
-    NSString *s1 = obj1;
-    NSString *s2 = obj2;
-    return [s1 compare:s2];
-}
-
 - (NSArray *)places {
     if (!_places) {
         _places = [FlickrFetcher topPlaces];
     }
     return _places;
-}
-
-- (void) initData {
-    NSMutableArray *citiesWork = [[NSMutableArray alloc] initWithCapacity:self.places.count];
-    NSMutableDictionary *countryWork = [[NSMutableDictionary alloc] initWithCapacity:self.places.count];
-    
-    for (NSDictionary *placeDict in self.places) {
-        NSString *_content = [placeDict objectForKey:@"_content"];
-        NSArray *dividedContent = [_content componentsSeparatedByString:@","];
-
-        NSString *city = [dividedContent objectAtIndex:0];
-        NSString *country = [dividedContent lastObject];
-        
-        [citiesWork addObject:city];
-        [countryWork setObject:country forKey:city];
-    }
-    
-    _sortedCities = [citiesWork sortedArrayUsingFunction:placeSort context:NULL];
-    _countryForCity = [countryWork copy];
 }
 
 - (NSArray *)sortedCities {
@@ -76,6 +53,33 @@ NSInteger placeSort(id obj1, id obj2, void *context)
     }
     return _countryForCity;
 }
+
+NSInteger placeSort(id obj1, id obj2, void *context)
+{
+    NSString *s1 = obj1;
+    NSString *s2 = obj2;
+    return [s1 compare:s2];
+}
+
+- (void) initData {
+    NSMutableArray *citiesWork = [[NSMutableArray alloc] initWithCapacity:self.places.count];
+    NSMutableDictionary *countryWork = [[NSMutableDictionary alloc] initWithCapacity:self.places.count];
+    
+    for (NSDictionary *placeDict in self.places) {
+        NSString *_content = [placeDict objectForKey:@"_content"];
+        NSArray *dividedContent = [_content componentsSeparatedByString:@","];
+        
+        NSString *city = [dividedContent objectAtIndex:0];
+        NSString *country = [dividedContent lastObject];
+        
+        [citiesWork addObject:city];
+        [countryWork setObject:country forKey:city];
+    }
+    
+    _sortedCities = [citiesWork sortedArrayUsingFunction:placeSort context:NULL];
+    _countryForCity = [countryWork copy];
+}
+
 
 #pragma mark - Table view data source
 
