@@ -11,11 +11,15 @@
 
 @interface PlacesTableViewController ()
 @property (nonatomic, strong) NSArray *places;
+@property (nonatomic, strong) NSArray *sortedCities;
+@property (nonatomic, strong) NSDictionary *countryForCity;
 @end
 
 @implementation PlacesTableViewController
 
 @synthesize places = _places;
+@synthesize sortedCities = _sortedCities;
+@synthesize countryForCity = _countryForCity;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,11 +30,51 @@
     return self;
 }
 
+NSInteger placeSort(id obj1, id obj2, void *context)
+{
+    NSString *s1 = obj1;
+    NSString *s2 = obj2;
+    return [s1 compare:s2];
+}
+
 - (NSArray *)places {
     if (!_places) {
         _places = [FlickrFetcher topPlaces];
     }
     return _places;
+}
+
+- (void) initData {
+    NSMutableArray *citiesWork = [[NSMutableArray alloc] initWithCapacity:self.places.count];
+    NSMutableDictionary *countryWork = [[NSMutableDictionary alloc] initWithCapacity:self.places.count];
+    
+    for (NSDictionary *placeDict in self.places) {
+        NSString *_content = [placeDict objectForKey:@"_content"];
+        NSArray *dividedContent = [_content componentsSeparatedByString:@","];
+
+        NSString *city = [dividedContent objectAtIndex:0];
+        NSString *country = [dividedContent objectAtIndex:(dividedContent.count - 1)];
+        
+        [citiesWork addObject:city];
+        [countryWork setObject:country forKey:city];
+    }
+    
+    _sortedCities = [citiesWork sortedArrayUsingFunction:placeSort context:NULL];
+    _countryForCity = [countryWork copy];
+}
+
+- (NSArray *)sortedCities {
+    if (!_sortedCities) {
+        [self initData];
+    }
+    return _sortedCities;
+}
+
+- (NSDictionary *)countryForCity {
+    if (!_countryForCity) {
+        [self initData];
+    }
+    return _countryForCity;
 }
 
 #pragma mark - Table view data source
@@ -52,12 +96,10 @@
     
     // Configure the cell...
     
-    NSDictionary *dict = [self.places objectAtIndex:indexPath.row];
-    cell.textLabel.text = [dict objectForKey:@"woe_name"];
+    NSString *city = [self.sortedCities objectAtIndex:indexPath.row];
+    cell.textLabel.text = city;
     
-    NSString *_content = [dict objectForKey:@"_content"];
-    NSArray *dividedContent = [_content componentsSeparatedByString:@","];
-    NSString *country = [dividedContent lastObject];
+    NSString *country = [self.countryForCity objectForKey:city];
     cell.detailTextLabel.text = country;
     
     //NSLog(@"%@", dict);
