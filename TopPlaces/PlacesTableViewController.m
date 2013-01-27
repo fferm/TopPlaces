@@ -53,7 +53,7 @@ NSInteger placeSort(id obj1, id obj2, void *context)
         NSArray *dividedContent = [_content componentsSeparatedByString:@","];
 
         NSString *city = [dividedContent objectAtIndex:0];
-        NSString *country = [dividedContent objectAtIndex:(dividedContent.count - 1)];
+        NSString *country = [dividedContent lastObject];
         
         [citiesWork addObject:city];
         [countryWork setObject:country forKey:city];
