@@ -7,90 +7,28 @@
 //
 
 #import "PlacesTableViewController.h"
-#import "FlickrFetcher.h"
+#import "PlacesModel.h"
 
 @interface PlacesTableViewController ()
-@property (nonatomic, strong) NSArray *places;
-@property (nonatomic, strong) NSArray *sortedCities;
-@property (nonatomic, strong) NSDictionary *countryForCity;
-
-NSInteger placeSort(id obj1, id obj2, void *context);
-- (void) initData;
+@property (nonatomic, strong) PlacesModel *model;
 @end
 
 @implementation PlacesTableViewController
 
-@synthesize places = _places;
-@synthesize sortedCities = _sortedCities;
-@synthesize countryForCity = _countryForCity;
+@synthesize model = _model;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+-(PlacesModel *)model {
+    if (!_model) {
+        _model = [[PlacesModel alloc] init];
     }
-    return self;
+    return _model;
 }
-
-- (NSArray *)places {
-    if (!_places) {
-        _places = [FlickrFetcher topPlaces];
-    }
-    return _places;
-}
-
-- (NSArray *)sortedCities {
-    if (!_sortedCities) {
-        [self initData];
-    }
-    return _sortedCities;
-}
-
-- (NSDictionary *)countryForCity {
-    if (!_countryForCity) {
-        [self initData];
-    }
-    return _countryForCity;
-}
-
-NSInteger placeSort(id obj1, id obj2, void *context)
-{
-    NSString *s1 = obj1;
-    NSString *s2 = obj2;
-    return [s1 compare:s2];
-}
-
-- (void) initData {
-    NSMutableArray *citiesWork = [[NSMutableArray alloc] initWithCapacity:self.places.count];
-    NSMutableDictionary *countryWork = [[NSMutableDictionary alloc] initWithCapacity:self.places.count];
-    
-    for (NSDictionary *placeDict in self.places) {
-        NSString *_content = [placeDict objectForKey:@"_content"];
-        NSArray *dividedContent = [_content componentsSeparatedByString:@","];
-        
-        NSString *city = [dividedContent objectAtIndex:0];
-        NSString *country = [dividedContent lastObject];
-        
-        [citiesWork addObject:city];
-        [countryWork setObject:country forKey:city];
-    }
-    
-    _sortedCities = [citiesWork sortedArrayUsingFunction:placeSort context:NULL];
-    _countryForCity = [countryWork copy];
-}
-
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.places.count;
+    return [self.model count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,14 +38,9 @@ NSInteger placeSort(id obj1, id obj2, void *context)
     
     // Configure the cell...
     
-    NSString *city = [self.sortedCities objectAtIndex:indexPath.row];
-    cell.textLabel.text = city;
+    cell.textLabel.text = [self.model placeNameAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [self.model countryNameAtIndex:indexPath.row];
     
-    NSString *country = [self.countryForCity objectForKey:city];
-    cell.detailTextLabel.text = country;
-    
-    //NSLog(@"%@", dict);
-
     return cell;
 }
 

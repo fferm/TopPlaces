@@ -23,6 +23,7 @@
 		0B3C8A3016B5D0AF00FB35BC /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C8A2F16B5D0AF00FB35BC /* PlacesTableViewController.m */; };
 		0B3C8A3316B73B3100FB35BC /* RecentPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C8A3216B73B3100FB35BC /* RecentPhotosViewController.m */; };
 		0B3C8A3716B73CD900FB35BC /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3C8A3616B73CD900FB35BC /* globe.png */; };
+		0B3C8A3A16B9D85900FB35BC /* PlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C8A3916B9D85900FB35BC /* PlacesModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		0B3C8A3116B73B3100FB35BC /* RecentPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosViewController.h; sourceTree = "<group>"; };
 		0B3C8A3216B73B3100FB35BC /* RecentPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosViewController.m; sourceTree = "<group>"; };
 		0B3C8A3616B73CD900FB35BC /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = globe.png; path = ../globe.png; sourceTree = "<group>"; };
+		0B3C8A3816B9D85900FB35BC /* PlacesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesModel.h; sourceTree = "<group>"; };
+		0B3C8A3916B9D85900FB35BC /* PlacesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				0B3C8A2F16B5D0AF00FB35BC /* PlacesTableViewController.m */,
 				0B3C8A3116B73B3100FB35BC /* RecentPhotosViewController.h */,
 				0B3C8A3216B73B3100FB35BC /* RecentPhotosViewController.m */,
+				0B3C8A3816B9D85900FB35BC /* PlacesModel.h */,
+				0B3C8A3916B9D85900FB35BC /* PlacesModel.m */,
 			);
 			path = TopPlaces;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				0B3C8A2716B5C9F500FB35BC /* FlickrFetcher.m in Sources */,
 				0B3C8A3016B5D0AF00FB35BC /* PlacesTableViewController.m in Sources */,
 				0B3C8A3316B73B3100FB35BC /* RecentPhotosViewController.m in Sources */,
+				0B3C8A3A16B9D85900FB35BC /* PlacesModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
