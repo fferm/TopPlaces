@@ -12,6 +12,6 @@
 
 - (NSInteger) count;
 - (NSString *) placeNameAtIndex:(NSInteger)index;
-- (NSString *) countryNameAtIndex:(NSInteger)index;
+- (NSString *) descriptionAtIndex:(NSInteger)index;
 
 @end

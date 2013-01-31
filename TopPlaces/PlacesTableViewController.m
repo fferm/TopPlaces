@@ -39,7 +39,7 @@
     // Configure the cell...
     
     cell.textLabel.text = [self.model placeNameAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.model countryNameAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [self.model descriptionAtIndex:indexPath.row];
     
     return cell;
 }
