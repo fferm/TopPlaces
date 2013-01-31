@@ -90,4 +90,9 @@
     return [self descriptionForPlace:[self placeAtIndex:index]];
 }
 
+-(NSString *) idAtIndex:(NSInteger)index {
+    NSDictionary *place = [self placeAtIndex:index];
+    return [place objectForKey:PLACE_ID];
+}
+
 @end

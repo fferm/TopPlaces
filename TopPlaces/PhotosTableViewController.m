@@ -1,59 +1,42 @@
 //
-//  PlacesTableViewController.m
+//  PhotosTableViewController.m
 //  TopPlaces
 //
-//  Created by Fredrik Ferm on 2013-01-27.
+//  Created by Fredrik Ferm on 2013-01-31.
 //  Copyright (c) 2013 Fermitet. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "PlacesTableViewController.h"
-#import "PlacesModel.h"
 #import "PhotosTableViewController.h"
 
-@interface PlacesTableViewController ()
-@property (nonatomic, strong) PlacesModel *model;
+@interface PhotosTableViewController ()
+
 @end
 
-@implementation PlacesTableViewController
+@implementation PhotosTableViewController
+@synthesize placeId = _placeId;
 
-@synthesize model = _model;
-
--(PlacesModel *)model {
-    if (!_model) {
-        _model = [[PlacesModel alloc] init];
-    }
-    return _model;
+-(void)setPlaceId:(NSString *)placeId {
+    NSLog(@"placeId: %@", placeId);
+    _placeId = placeId;
 }
-
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.model count];
+    // TODO
+    // Return the number of rows in the section.
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"PlaceCell";
+    NSString *CellIdentifier = @"PhotoCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
-    cell.textLabel.text = [self.model placeNameAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.model descriptionAtIndex:indexPath.row];
+    cell.textLabel.text = @"hej";
     
     return cell;
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"PhotoSegue"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSString *placeId = [self.model idAtIndex:indexPath.row];
-        
-        PhotosTableViewController *destination = segue.destinationViewController;
-        destination.placeId = placeId;
-    }
 }
 
 /*
@@ -94,5 +77,18 @@
     return YES;
 }
 */
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+}
 
 @end
