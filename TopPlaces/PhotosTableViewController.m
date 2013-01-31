@@ -13,19 +13,20 @@
 @end
 
 @implementation PhotosTableViewController
-@synthesize placeId = _placeId;
+@synthesize model = _model;
 
--(void)setPlaceId:(NSString *)placeId {
-    NSLog(@"placeId: %@", placeId);
-    _placeId = placeId;
+-(PhotosModel *)model {
+    if (!_model) {
+        _model = [[PhotosModel alloc] init];
+    }
+    return _model;
 }
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // TODO
-    // Return the number of rows in the section.
-    return 3;
+    return [self.model count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -34,7 +35,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = @"hej";
+    cell.textLabel.text = [self.model titleAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [self.model subtitleAtIndex:indexPath.row];
     
     return cell;
 }

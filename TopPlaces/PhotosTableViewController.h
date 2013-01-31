@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotosModel.h"
 
 @interface PhotosTableViewController : UITableViewController
-@property (nonatomic, strong) NSString *placeId;
+@property (nonatomic, strong) PhotosModel *model;
 @end

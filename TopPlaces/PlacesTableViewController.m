@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Fermitet. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "PlacesTableViewController.h"
 #import "PlacesModel.h"
 #import "PhotosTableViewController.h"
@@ -40,19 +39,19 @@
     
     // Configure the cell...
     
-    cell.textLabel.text = [self.model placeNameAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.model descriptionAtIndex:indexPath.row];
+    cell.textLabel.text = [self.model titleAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [self.model subtitleAtIndex:indexPath.row];
     
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"PhotoSegue"]) {
+    if ([segue.identifier isEqualToString:@"PhotosSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSString *placeId = [self.model idAtIndex:indexPath.row];
+        NSDictionary *place = [self.model placeAtIndex:indexPath.row];
         
         PhotosTableViewController *destination = segue.destinationViewController;
-        destination.placeId = placeId;
+        destination.model.place = place;
     }
 }
 

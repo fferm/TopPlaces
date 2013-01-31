@@ -11,8 +11,8 @@
 @interface PlacesModel : NSObject
 
 - (NSInteger) count;
-- (NSString *) placeNameAtIndex:(NSInteger)index;
-- (NSString *) descriptionAtIndex:(NSInteger)index;
-- (NSString *) idAtIndex:(NSInteger)index;
+- (NSString *) titleAtIndex:(NSInteger)index;
+- (NSString *) subtitleAtIndex:(NSInteger)index;
+- (NSDictionary *) placeAtIndex:(NSInteger)index;
 
 @end
