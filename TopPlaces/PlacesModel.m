@@ -21,17 +21,6 @@
 @synthesize flickrPlaces = _flickrPlaces;
 @synthesize sortedPlaces = _sortedPlaces;
 
-#define CONTENT @"_content"
-#define LATITUDE @"latitude"
-#define PHOTO_COUNT @"photo_count"
-#define PLACE_ID @"place_id"
-#define PLACE_TYPE @"place_type"
-#define PLACE_TYPE_ID @"place_type_id"
-#define URL @"place_url"
-#define TIMEZONE "timezone"
-#define WOE_NAME "woe_name"
-#define WOE_ID "woeid"
-
 -(NSArray *)flickrPlaces {
     if (!_flickrPlaces) {
         _flickrPlaces = [FlickrFetcher topPlaces];
@@ -57,7 +46,7 @@
 }
 
 -(NSArray *) dividedContentStringForPlace:(NSDictionary *)place {
-    NSString *content = [place objectForKey:CONTENT];
+    NSString *content = [place objectForKey:FLICKR_PLACE_NAME];
     return [content componentsSeparatedByString:@","];
 }
 

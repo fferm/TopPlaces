@@ -17,14 +17,9 @@
 @synthesize place = _place;
 @synthesize flickrPhotos = _flickrPhotos;
 
-#define TITLE @"title"
-#define DESCRIPTION @"description"
-#define CONTENT @"_content"
-
 -(NSArray *)flickrPhotos {
     if (!_flickrPhotos) {
         _flickrPhotos = [FlickrFetcher photosInPlace:self.place maxResults:50];
-        NSLog(_flickrPhotos.description);
     }
     return _flickrPhotos;
 }
@@ -34,11 +29,12 @@
 }
 
 -(NSString *)titleDataForPhoto:(NSDictionary *)photo {
-    return [photo objectForKey:TITLE];
+    return [photo objectForKey:FLICKR_PHOTO_TITLE];
 }
 
 -(NSString *)descriptionDataForPhoto:(NSDictionary *)photo {
-    return [[photo objectForKey:DESCRIPTION] objectForKey:CONTENT];
+  //  return [photo objectForKey:FLICKR_PHOTO_DESCRIPTION];
+    return [[photo objectForKey:FLICKR_PHOTO_DESCRIPTION] objectForKey:FLICKR_PHOTO_CONTENT];
 }
 
 -(NSString *)titleAtIndex:(NSInteger)index {
