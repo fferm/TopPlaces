@@ -7,19 +7,29 @@
 //
 
 #import "PhotosTableViewController.h"
+#import "PlacesModel.h"
 
 @interface PhotosTableViewController ()
+@property (nonatomic, strong) PhotosModel *model;
 
 @end
 
 @implementation PhotosTableViewController
 @synthesize model = _model;
+@synthesize place = _place;
 
 -(PhotosModel *)model {
     if (!_model) {
         _model = [[PhotosModel alloc] init];
     }
     return _model;
+}
+
+-(void)setPlace:(NSDictionary *)place {
+    _place = place;
+    self.model.place = place;
+    NSString *placeName = [PlacesModel titleForPlace:place];
+    self.title = [NSString stringWithFormat:@"Photos at %@", placeName, nil];
 }
 
 #pragma mark - Table view data source

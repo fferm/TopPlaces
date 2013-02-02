@@ -15,4 +15,6 @@
 - (NSString *) subtitleAtIndex:(NSInteger)index;
 - (NSDictionary *) placeAtIndex:(NSInteger)index;
 
++ (NSString *)titleForPlace:(NSDictionary *)place;
+
 @end

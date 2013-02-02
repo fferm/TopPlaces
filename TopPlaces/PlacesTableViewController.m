@@ -51,7 +51,7 @@
         NSDictionary *place = [self.model placeAtIndex:indexPath.row];
         
         PhotosTableViewController *destination = segue.destinationViewController;
-        destination.model.place = place;
+        destination.place = place;
     }
 }
 

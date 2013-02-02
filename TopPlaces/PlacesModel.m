@@ -31,7 +31,7 @@
 -(NSArray *)sortedPlaces {
     if (!_sortedPlaces) {
         _sortedPlaces = [self.flickrPlaces sortedArrayUsingComparator: ^(id obj1, id obj2) {
-            return [[self titleForPlace:obj1] compare:[self titleForPlace:obj2]];
+            return [[PlacesModel titleForPlace:obj1] compare:[PlacesModel titleForPlace:obj2]];
         }];
     }
     return _sortedPlaces;
@@ -45,17 +45,17 @@
     return [self.sortedPlaces objectAtIndex:index];
 }
 
--(NSArray *) dividedContentStringForPlace:(NSDictionary *)place {
++(NSArray *) dividedContentStringForPlace:(NSDictionary *)place {
     NSString *content = [place objectForKey:FLICKR_PLACE_NAME];
     return [content componentsSeparatedByString:@","];
 }
 
--(NSString *)titleForPlace:(NSDictionary *)place {
++(NSString *)titleForPlace:(NSDictionary *)place {
     return [[self dividedContentStringForPlace:place] objectAtIndex:0];
 }
 
 -(NSString *)subtitleForPlace:(NSDictionary *)place {
-    NSMutableArray *desc = [[self dividedContentStringForPlace:place] mutableCopy];
+    NSMutableArray *desc = [[PlacesModel dividedContentStringForPlace:place] mutableCopy];
     [desc removeObjectAtIndex:0];
 
     NSString *ret = @"";
@@ -72,7 +72,7 @@
 }
 
 -(NSString *) titleAtIndex:(NSInteger)index {
-    return [self titleForPlace:[self placeAtIndex:index]];
+    return [PlacesModel titleForPlace:[self placeAtIndex:index]];
 }
 
 -(NSString *) subtitleAtIndex:(NSInteger)index {

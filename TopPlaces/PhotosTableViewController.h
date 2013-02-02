@@ -10,5 +10,6 @@
 #import "PhotosModel.h"
 
 @interface PhotosTableViewController : UITableViewController
-@property (nonatomic, strong) PhotosModel *model;
+@property (nonatomic, strong) NSDictionary *place;
+
 @end

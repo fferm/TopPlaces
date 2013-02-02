@@ -8,6 +8,7 @@
 
 #import "PhotosModel.h"
 #import "FlickrFetcher.h"
+#import "PlacesModel.h"
 
 @interface PhotosModel()
 @property (nonatomic, strong) NSArray *flickrPhotos;
@@ -60,5 +61,9 @@
         ret = [self descriptionDataForPhoto:photo];
     }
     return ret;
+}
+
+-(NSString *)placeTitle {
+    return [PlacesModel titleForPlace:self.place];
 }
 @end
