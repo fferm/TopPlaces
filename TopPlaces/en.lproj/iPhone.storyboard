@@ -179,7 +179,7 @@
         <scene sceneID="65b-pb-p1d">
             <objects>
                 <navigationController id="NXo-Fj-ecV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Places" image="globe.png" id="W8d-Hs-Ntl"/>
+                    <tabBarItem key="tabBarItem" title="Places" image="globe.png" id="W8d-Hs-Ntl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I4A-19-raY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -198,6 +198,17 @@
     <resources>
         <image name="globe.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="PhotosTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosTableViewController.h"/>
+        </class>
+        <class className="PlacesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTableViewController.h"/>
+        </class>
+        <class className="RecentPhotosViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
