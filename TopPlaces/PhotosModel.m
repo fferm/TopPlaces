@@ -9,6 +9,7 @@
 #import "PhotosModel.h"
 #import "FlickrFetcher.h"
 #import "PlacesModel.h"
+#import "PhotoHelper.h"
 
 @interface PhotosModel()
 @property (nonatomic, strong) NSArray *flickrPhotos;
@@ -25,48 +26,22 @@
     return _flickrPhotos;
 }
 
+-(NSDictionary *)photoAtIndex:(NSInteger)index {
+    return [self.flickrPhotos objectAtIndex:index];
+}
+    
 -(NSInteger)count {
     return self.flickrPhotos.count;
 }
 
--(NSString *)titleDataForPhoto:(NSDictionary *)photo {
-    return [photo objectForKey:FLICKR_PHOTO_TITLE];
-}
-
--(NSString *)descriptionDataForPhoto:(NSDictionary *)photo {
-  //  return [photo objectForKey:FLICKR_PHOTO_DESCRIPTION];
-    return [[photo objectForKey:FLICKR_PHOTO_DESCRIPTION] objectForKey:FLICKR_PHOTO_CONTENT];
-}
-
 -(NSString *)titleAtIndex:(NSInteger)index {
-    NSDictionary *photo = [self.flickrPhotos objectAtIndex:index];
-    
-    NSString *ret = [self titleDataForPhoto:photo];
-    if (!ret || ret.length == 0) {
-        ret = [self descriptionDataForPhoto:photo];
-    }
-    if (!ret || ret.length == 0) {
-        ret = @"Unknown";
-    }
-    
-    return ret;
+    NSDictionary *photo = [self photoAtIndex:index];
+    return [PhotoHelper titleForPhoto:photo];
 }
 
 -(NSString *)subtitleAtIndex:(NSInteger)index {
-    NSDictionary *photo = [self.flickrPhotos objectAtIndex:index];
-
-    NSString *ret = @"";
-    NSString *title = [self titleDataForPhoto:photo];
-    if (title && title.length > 0) {
-        ret = [self descriptionDataForPhoto:photo];
-    }
-    return ret;
-}
-
--(NSURL *)urlAtIndex:(NSInteger)index {
-    NSDictionary *photo = [self.flickrPhotos objectAtIndex:index];
-    
-    return [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatOriginal];
+    NSDictionary *photo = [self photoAtIndex:index];
+    return [PhotoHelper subtitleForPhoto:photo];
 }
 
 -(NSString *)placeTitle {

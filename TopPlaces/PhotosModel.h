@@ -12,8 +12,8 @@
 @property (nonatomic, strong) NSDictionary *place;
 
 -(NSInteger)count;
+-(NSDictionary *)photoAtIndex:(NSInteger)index;
 -(NSString *)titleAtIndex:(NSInteger)index;
 -(NSString *)subtitleAtIndex:(NSInteger)index;
--(NSURL *)urlAtIndex:(NSInteger)index;
 -(NSString *)placeTitle;
 @end

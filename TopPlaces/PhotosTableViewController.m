@@ -38,8 +38,7 @@
         ImageViewController *vc = segue.destinationViewController;
 
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        
-        vc.imageUrl = [self.model urlAtIndex:indexPath.row];
+        vc.photo = [self.model photoAtIndex:indexPath.row];
     }
 }
 

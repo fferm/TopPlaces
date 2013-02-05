@@ -25,6 +25,7 @@
 		0B3C8A3A16B9D85900FB35BC /* PlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C8A3916B9D85900FB35BC /* PlacesModel.m */; };
 		0BC34CA716BB290D00C3420A /* PhotosModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC34CA616BB290D00C3420A /* PhotosModel.m */; };
 		0BC34CAA16C06C7300C3420A /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC34CA916C06C7300C3420A /* ImageViewController.m */; };
+		0BC34CB116C1C61300C3420A /* PhotoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC34CB016C1C61300C3420A /* PhotoHelper.m */; };
 		0BDF26CF16BB0F0D0042FBA1 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		0BC34CA616BB290D00C3420A /* PhotosModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosModel.m; sourceTree = "<group>"; };
 		0BC34CA816C06C7300C3420A /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		0BC34CA916C06C7300C3420A /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		0BC34CAF16C1C61300C3420A /* PhotoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoHelper.h; sourceTree = "<group>"; };
+		0BC34CB016C1C61300C3420A /* PhotoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoHelper.m; sourceTree = "<group>"; };
 		0BDF26CD16BB0F0D0042FBA1 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
 		0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +129,8 @@
 				0B3C8A3916B9D85900FB35BC /* PlacesModel.m */,
 				0BC34CA516BB290D00C3420A /* PhotosModel.h */,
 				0BC34CA616BB290D00C3420A /* PhotosModel.m */,
+				0BC34CAF16C1C61300C3420A /* PhotoHelper.h */,
+				0BC34CB016C1C61300C3420A /* PhotoHelper.m */,
 			);
 			path = TopPlaces;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				0BDF26CF16BB0F0D0042FBA1 /* PhotosTableViewController.m in Sources */,
 				0BC34CA716BB290D00C3420A /* PhotosModel.m in Sources */,
 				0BC34CAA16C06C7300C3420A /* ImageViewController.m in Sources */,
+				0BC34CB116C1C61300C3420A /* PhotoHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
