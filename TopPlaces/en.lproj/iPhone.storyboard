@@ -133,7 +133,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="NEB-Ac-gak" kind="push" id="I87-vD-cX5"/>
+                                    <segue destination="NEB-Ac-gak" kind="push" identifier="ImageSegue" id="I87-vD-cX5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -148,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="1122" y="517"/>
         </scene>
-        <!--View Controller-->
+        <!--Image View Controller-->
         <scene sceneID="fHS-sc-iVL">
             <objects>
-                <viewController id="NEB-Ac-gak" sceneMemberID="viewController">
+                <viewController id="NEB-Ac-gak" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fg-lP-rKo">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -159,17 +159,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="WsS-Ee-37W">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="iAQ-Ig-0E1">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qh4-V7-D4L"/>
+                    <connections>
+                        <outlet property="scrollView" destination="WsS-Ee-37W" id="gXF-rU-fBn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXC-9J-aVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -198,17 +195,6 @@
     <resources>
         <image name="globe.png" width="32" height="32"/>
     </resources>
-    <classes>
-        <class className="PhotosTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosTableViewController.h"/>
-        </class>
-        <class className="PlacesTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesTableViewController.h"/>
-        </class>
-        <class className="RecentPhotosViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

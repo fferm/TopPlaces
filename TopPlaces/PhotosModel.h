@@ -14,5 +14,6 @@
 -(NSInteger)count;
 -(NSString *)titleAtIndex:(NSInteger)index;
 -(NSString *)subtitleAtIndex:(NSInteger)index;
+-(NSURL *)urlAtIndex:(NSInteger)index;
 -(NSString *)placeTitle;
 @end

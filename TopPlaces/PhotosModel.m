@@ -63,6 +63,12 @@
     return ret;
 }
 
+-(NSURL *)urlAtIndex:(NSInteger)index {
+    NSDictionary *photo = [self.flickrPhotos objectAtIndex:index];
+    
+    return [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatOriginal];
+}
+
 -(NSString *)placeTitle {
     return [PlacesModel titleForPlace:self.place];
 }

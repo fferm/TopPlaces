@@ -8,6 +8,7 @@
 
 #import "PhotosTableViewController.h"
 #import "PlacesModel.h"
+#import "ImageViewController.h"
 
 @interface PhotosTableViewController ()
 @property (nonatomic, strong) PhotosModel *model;
@@ -30,6 +31,16 @@
     self.model.place = place;
     NSString *placeName = [PlacesModel titleForPlace:place];
     self.title = [NSString stringWithFormat:@"Photos at %@", placeName, nil];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ImageSegue"]) {
+        ImageViewController *vc = segue.destinationViewController;
+
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        vc.imageUrl = [self.model urlAtIndex:indexPath.row];
+    }
 }
 
 #pragma mark - Table view data source
