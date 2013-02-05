@@ -20,7 +20,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
 
-    // Hook up things
+    // Configure scrollView
     self.scrollView.delegate = self;
     self.scrollView.minimumZoomScale = 0.1;
     self.scrollView.maximumZoomScale = 10.0;
@@ -32,8 +32,13 @@
     self.imageView = [[UIImageView alloc] initWithImage:image];
     [self.scrollView addSubview:self.imageView];
     
-    // Configure with image
-    self.scrollView.contentSize = self.imageView.bounds.size;
+    // Configure sizes
+    self.scrollView.contentSize = self.imageView.image.size;
+    CGRect zoomRect = CGRectMake(0.0,
+                                 0.0,
+                                 self.scrollView.contentSize.width,
+                                 self.scrollView.contentSize.height);
+    [self.scrollView zoomToRect:zoomRect animated:NO];
 }
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
