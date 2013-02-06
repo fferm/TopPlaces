@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Photo.h"
 
 @interface ImageViewController : UIViewController
 
-@property (nonatomic, strong) NSDictionary *photo;
+@property (nonatomic, strong) Photo *photo;
 
 @end

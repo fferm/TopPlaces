@@ -9,6 +9,7 @@
 #import "PhotosTableViewController.h"
 #import "PlacesModel.h"
 #import "ImageViewController.h"
+#import "Photo.h"
 
 @interface PhotosTableViewController ()
 @property (nonatomic, strong) PhotosModel *model;
@@ -26,6 +27,10 @@
     return _model;
 }
 
+-(Photo *)photoAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.model photoAtIndex:indexPath.row];
+}
+
 -(void)setPlace:(NSDictionary *)place {
     _place = place;
     self.model.place = place;
@@ -38,7 +43,7 @@
         ImageViewController *vc = segue.destinationViewController;
 
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSDictionary *photo = [self.model photoAtIndex:indexPath.row];
+        Photo *photo = [self photoAtIndexPath:indexPath];
         vc.photo = photo;
     }
 }
@@ -56,8 +61,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [self.model titleAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.model subtitleAtIndex:indexPath.row];
+    Photo *photo = [self photoAtIndexPath:indexPath];
+    cell.textLabel.text = photo.title;
+    cell.detailTextLabel.text = photo.subtitle;
     
     return cell;
 }

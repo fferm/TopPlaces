@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Photo.h"
 
 @interface PhotosModel : NSObject
 @property (nonatomic, strong) NSDictionary *place;
 
 -(NSInteger)count;
--(NSDictionary *)photoAtIndex:(NSInteger)index;
--(NSString *)titleAtIndex:(NSInteger)index;
--(NSString *)subtitleAtIndex:(NSInteger)index;
+-(Photo *)photoAtIndex:(NSInteger)index;
 -(NSString *)placeTitle;
 @end

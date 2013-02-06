@@ -9,39 +9,36 @@
 #import "PhotosModel.h"
 #import "FlickrFetcher.h"
 #import "PlacesModel.h"
-#import "PhotoHelper.h"
 
 @interface PhotosModel()
-@property (nonatomic, strong) NSArray *flickrPhotos;
+@property (nonatomic, strong) NSArray *photos;
 @end
 
 @implementation PhotosModel
 @synthesize place = _place;
-@synthesize flickrPhotos = _flickrPhotos;
+@synthesize photos = _photos;
 
--(NSArray *)flickrPhotos {
-    if (!_flickrPhotos) {
-        _flickrPhotos = [FlickrFetcher photosInPlace:self.place maxResults:50];
+-(NSArray *)photos {
+    
+    if (!_photos) {
+        NSMutableArray *work = [[NSMutableArray alloc] init];
+        NSArray *flickrPhotos = [FlickrFetcher photosInPlace:self.place maxResults:50];
+        for (NSDictionary *dict in flickrPhotos) {
+            Photo *photo = [[Photo alloc] initWithFlickrDictionary:dict];
+            [work addObject:photo];
+        }
+        return [work copy];
+        
     }
-    return _flickrPhotos;
+    return _photos;
 }
 
--(NSDictionary *)photoAtIndex:(NSInteger)index {
-    return [self.flickrPhotos objectAtIndex:index];
+-(Photo *)photoAtIndex:(NSInteger)index {
+    return [self.photos objectAtIndex:index];
 }
     
 -(NSInteger)count {
-    return self.flickrPhotos.count;
-}
-
--(NSString *)titleAtIndex:(NSInteger)index {
-    NSDictionary *photo = [self photoAtIndex:index];
-    return [PhotoHelper titleForPhoto:photo];
-}
-
--(NSString *)subtitleAtIndex:(NSInteger)index {
-    NSDictionary *photo = [self photoAtIndex:index];
-    return [PhotoHelper subtitleForPhoto:photo];
+    return self.photos.count;
 }
 
 -(NSString *)placeTitle {

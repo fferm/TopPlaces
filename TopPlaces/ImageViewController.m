@@ -7,8 +7,7 @@
 //
 
 #import "ImageViewController.h"
-#import "FlickrFetcher.h"
-#import "PhotoHelper.h"
+#import "Photo.h"
 
 @interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -27,7 +26,7 @@
     self.scrollView.maximumZoomScale = 10.0;
     
     // Add image
-    NSData *data = [NSData dataWithContentsOfURL:[self urlOfPhoto]];
+    NSData *data = [NSData dataWithContentsOfURL:self.photo.url];
     UIImage *image = [UIImage imageWithData:data];
     
     self.imageView = [[UIImageView alloc] initWithImage:image];
@@ -43,7 +42,7 @@
 }
 
 -(void)setUpNavigationBar {
-    self.title = [PhotoHelper titleForPhoto:self.photo];
+    self.title = self.photo.title;;
 }
 
 -(void)viewDidLoad {
@@ -54,10 +53,6 @@
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
-}
-
--(NSURL *)urlOfPhoto {
-    return [FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatOriginal];
 }
 
 
