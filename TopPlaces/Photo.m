@@ -43,12 +43,10 @@
     return [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatOriginal];
 }
 
--(id)initWithFlickrDictionary:(NSDictionary *)dict {
-    self = [super init];
-    
-    self.flickrDict = dict;
-    
-    return self;
++(Photo *)photoWithFlickrDictionary:(NSDictionary *)dict {
+    Photo *photo = [[Photo alloc] init];
+    photo.flickrDict = dict;
+    return photo;
 }
 
 -(NSString *)titleData {

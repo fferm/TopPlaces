@@ -9,6 +9,7 @@
 #import "PlacesTableViewController.h"
 #import "PlacesModel.h"
 #import "PhotosTableViewController.h"
+#import "Place.h"
 
 @interface PlacesTableViewController ()
 @property (nonatomic, strong) PlacesModel *model;
@@ -39,8 +40,9 @@
     
     // Configure the cell...
     
-    cell.textLabel.text = [self.model titleAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.model subtitleAtIndex:indexPath.row];
+    Place *place = [self.model placeAtIndex:indexPath.row];
+    cell.textLabel.text = place.title;
+    cell.detailTextLabel.text = place.subtitle;
     
     return cell;
 }
@@ -48,7 +50,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"PhotosSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSDictionary *place = [self.model placeAtIndex:indexPath.row];
+        Place *place = [self.model placeAtIndex:indexPath.row];
         
         PhotosTableViewController *destination = segue.destinationViewController;
         destination.place = place;

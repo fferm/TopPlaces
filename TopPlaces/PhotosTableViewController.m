@@ -31,11 +31,10 @@
     return [self.model photoAtIndex:indexPath.row];
 }
 
--(void)setPlace:(NSDictionary *)place {
+-(void)setPlace:(Place *)place {
     _place = place;
     self.model.place = place;
-    NSString *placeName = [PlacesModel titleForPlace:place];
-    self.title = [NSString stringWithFormat:@"Photos at %@", placeName, nil];
+    self.title = [NSString stringWithFormat:@"Photos at %@", place.title , nil];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

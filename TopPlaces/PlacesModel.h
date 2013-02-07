@@ -7,14 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Place.h"
 
 @interface PlacesModel : NSObject
 
 - (NSInteger) count;
-- (NSString *) titleAtIndex:(NSInteger)index;
-- (NSString *) subtitleAtIndex:(NSInteger)index;
-- (NSDictionary *) placeAtIndex:(NSInteger)index;
-
-+ (NSString *)titleForPlace:(NSDictionary *)place;
-
+- (Place *) placeAtIndex:(NSInteger)index;
 @end

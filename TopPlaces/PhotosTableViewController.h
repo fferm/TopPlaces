@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PhotosModel.h"
+#import "Place.h"
 
 @interface PhotosTableViewController : UITableViewController
-@property (nonatomic, strong) NSDictionary *place;
+@property (nonatomic, strong) Place *place;
 
 @end

@@ -19,16 +19,8 @@
 @synthesize photos = _photos;
 
 -(NSArray *)photos {
-    
     if (!_photos) {
-        NSMutableArray *work = [[NSMutableArray alloc] init];
-        NSArray *flickrPhotos = [FlickrFetcher photosInPlace:self.place maxResults:50];
-        for (NSDictionary *dict in flickrPhotos) {
-            Photo *photo = [[Photo alloc] initWithFlickrDictionary:dict];
-            [work addObject:photo];
-        }
-        return [work copy];
-        
+        _photos = [self.place photos];
     }
     return _photos;
 }
@@ -39,9 +31,5 @@
     
 -(NSInteger)count {
     return self.photos.count;
-}
-
--(NSString *)placeTitle {
-    return [PlacesModel titleForPlace:self.place];
 }
 @end
