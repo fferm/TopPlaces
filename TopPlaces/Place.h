@@ -13,7 +13,8 @@
 @property (nonatomic, readonly) NSString *subtitle;
 @property (nonatomic, readonly) NSArray *photos; // of Photo objects
 
-+(Place *)placeWithFlickrDictionary:(NSDictionary *)dict;
++(NSArray *)sortedPlaces;
+
 -(void)resetPhotos;
 
 @end

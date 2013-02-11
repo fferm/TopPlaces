@@ -28,6 +28,23 @@
     return place;
 }
 
++(NSArray *)sortedPlaces {
+    NSArray *flickrPlaces = [FlickrFetcher topPlaces];
+    
+    NSMutableArray *mutRet = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    for (NSDictionary *flickrPlace in flickrPlaces) {
+        [mutRet addObject:[Place placeWithFlickrDictionary:flickrPlace]];
+    }
+    
+    return [mutRet sortedArrayUsingComparator: ^(id obj1, id obj2) {
+        Place *p1 = (Place *)obj1;
+        Place *p2 = (Place *)obj2;
+        
+        return [p1.title compare:p2.title];
+    }];
+}
+
 -(NSArray *) dividedContentString {
     NSString *content = [self.flickrDict objectForKey:FLICKR_PLACE_NAME];
     return [content componentsSeparatedByString:@","];

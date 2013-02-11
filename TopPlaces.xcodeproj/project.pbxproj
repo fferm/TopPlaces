@@ -23,7 +23,6 @@
 		0B3C8A3016B5D0AF00FB35BC /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C8A2F16B5D0AF00FB35BC /* PlacesTableViewController.m */; };
 		0B3C8A3316B73B3100FB35BC /* RecentPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C8A3216B73B3100FB35BC /* RecentPhotosViewController.m */; };
 		0B3C8A3716B73CD900FB35BC /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3C8A3616B73CD900FB35BC /* globe.png */; };
-		0B3C8A3A16B9D85900FB35BC /* PlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C8A3916B9D85900FB35BC /* PlacesModel.m */; };
 		0BC34CAA16C06C7300C3420A /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC34CA916C06C7300C3420A /* ImageViewController.m */; };
 		0BC34CB416C319F300C3420A /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC34CB316C319F300C3420A /* Photo.m */; };
 		0BDF26CF16BB0F0D0042FBA1 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */; };
@@ -55,8 +54,6 @@
 		0B3C8A3116B73B3100FB35BC /* RecentPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosViewController.h; sourceTree = "<group>"; };
 		0B3C8A3216B73B3100FB35BC /* RecentPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosViewController.m; sourceTree = "<group>"; };
 		0B3C8A3616B73CD900FB35BC /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = globe.png; path = ../globe.png; sourceTree = "<group>"; };
-		0B3C8A3816B9D85900FB35BC /* PlacesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesModel.h; sourceTree = "<group>"; };
-		0B3C8A3916B9D85900FB35BC /* PlacesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesModel.m; sourceTree = "<group>"; };
 		0BC34CA816C06C7300C3420A /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		0BC34CA916C06C7300C3420A /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		0BC34CB216C319F300C3420A /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
@@ -142,8 +139,6 @@
 				0B3C8A2F16B5D0AF00FB35BC /* PlacesTableViewController.m */,
 				0B3C8A3116B73B3100FB35BC /* RecentPhotosViewController.h */,
 				0B3C8A3216B73B3100FB35BC /* RecentPhotosViewController.m */,
-				0B3C8A3816B9D85900FB35BC /* PlacesModel.h */,
-				0B3C8A3916B9D85900FB35BC /* PlacesModel.m */,
 			);
 			path = TopPlaces;
 			sourceTree = "<group>";
@@ -240,7 +235,6 @@
 				0B3C8A2716B5C9F500FB35BC /* FlickrFetcher.m in Sources */,
 				0B3C8A3016B5D0AF00FB35BC /* PlacesTableViewController.m in Sources */,
 				0B3C8A3316B73B3100FB35BC /* RecentPhotosViewController.m in Sources */,
-				0B3C8A3A16B9D85900FB35BC /* PlacesModel.m in Sources */,
 				0BDF26CF16BB0F0D0042FBA1 /* PhotosTableViewController.m in Sources */,
 				0BC34CAA16C06C7300C3420A /* ImageViewController.m in Sources */,
 				0BC34CB416C319F300C3420A /* Photo.m in Sources */,

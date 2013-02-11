@@ -7,30 +7,27 @@
 //
 
 #import "PlacesTableViewController.h"
-#import "PlacesModel.h"
 #import "PhotosTableViewController.h"
 #import "Place.h"
 
 @interface PlacesTableViewController ()
-@property (nonatomic, strong) PlacesModel *model;
+@property (nonatomic, strong)NSArray *places;
 @end
 
 @implementation PlacesTableViewController
+@synthesize places = _places;
 
-@synthesize model = _model;
-
--(PlacesModel *)model {
-    if (!_model) {
-        _model = [[PlacesModel alloc] init];
+-(NSArray *)places {
+    if (!_places) {
+        _places  = [Place sortedPlaces];
     }
-    return _model;
+    return _places;
 }
-
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.model count];
+    return [self.places count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -40,7 +37,7 @@
     
     // Configure the cell...
     
-    Place *place = [self.model placeAtIndex:indexPath.row];
+    Place *place = [self.places objectAtIndex:indexPath.row];
     cell.textLabel.text = place.title;
     cell.detailTextLabel.text = place.subtitle;
     
@@ -50,7 +47,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"PhotosSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Place *place = [self.model placeAtIndex:indexPath.row];
+        Place *place = [self.places objectAtIndex:indexPath.row];
         
         PhotosTableViewController *destination = segue.destinationViewController;
         destination.place = place;
