@@ -12,6 +12,7 @@
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *subtitle;
 @property (nonatomic, readonly) NSURL *url;
+@property (nonatomic, readonly) UIImage *image;
 
 +(Photo *)photoWithFlickrDictionary:(NSDictionary *)dict;
 @end

@@ -25,11 +25,7 @@
     self.scrollView.minimumZoomScale = 0.1;
     self.scrollView.maximumZoomScale = 10.0;
     
-    // Add image
-    NSData *data = [NSData dataWithContentsOfURL:self.photo.url];
-    UIImage *image = [UIImage imageWithData:data];
-    
-    self.imageView = [[UIImageView alloc] initWithImage:image];
+    self.imageView = [[UIImageView alloc] initWithImage:self.photo.image];
     [self.scrollView addSubview:self.imageView];
     
     // Configure sizes

@@ -18,6 +18,7 @@
 @synthesize subtitle = _subtitle;
 @synthesize flickrDict = _flickrDict;
 @synthesize url = _url;
+@synthesize image = _image;
 
 -(NSString *)title {
     NSString *ret = [self titleData];
@@ -37,6 +38,14 @@
         ret = [self descriptionData];
     }
     return ret;
+}
+
+-(UIImage *)image {
+    if (!_image) {
+        NSData *data = [NSData dataWithContentsOfURL:self.url];
+        _image = [UIImage imageWithData:data];
+    }
+    return _image;
 }
 
 -(NSURL *)url {

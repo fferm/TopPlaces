@@ -134,9 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				0B1D186D16C46AA300348D1D /* Flickr */,
-				0B3C8A0D16B5C95600FB35BC /* TopPlacesAppDelegate.h */,
-				0B3C8A0E16B5C95600FB35BC /* TopPlacesAppDelegate.m */,
-				0B3C8A1616B5C95600FB35BC /* iPhone.storyboard */,
 				0BC34CA816C06C7300C3420A /* ImageViewController.h */,
 				0BC34CA916C06C7300C3420A /* ImageViewController.m */,
 				0BDF26CD16BB0F0D0042FBA1 /* PhotosTableViewController.h */,
@@ -159,6 +156,9 @@
 		0B3C8A0516B5C95600FB35BC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0B3C8A0D16B5C95600FB35BC /* TopPlacesAppDelegate.h */,
+				0B3C8A0E16B5C95600FB35BC /* TopPlacesAppDelegate.m */,
+				0B3C8A1616B5C95600FB35BC /* iPhone.storyboard */,
 				0B3C8A3616B73CD900FB35BC /* globe.png */,
 				0B3C8A0616B5C95600FB35BC /* TopPlaces-Info.plist */,
 				0B3C8A0716B5C95600FB35BC /* InfoPlist.strings */,
