@@ -10,8 +10,9 @@
 #import "Photo.h"
 @interface UserDefaultsManager : NSObject
 
-+(void)addPhoto:(Photo *)photo;
++(void)addPhotoIfNotAlreadyPresent:(Photo *)photo;
 +(Photo *)photoAtIndex:(NSInteger)index;
 +(NSInteger)count;
 +(void)clear;
+
 @end

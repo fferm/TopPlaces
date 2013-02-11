@@ -70,5 +70,13 @@
     return [[self.flickrDict objectForKey:FLICKR_PHOTO_DESCRIPTION] objectForKey:FLICKR_PHOTO_CONTENT];
 }
 
+-(BOOL)isEqual:(id)object {
+    if (! [object isKindOfClass:[Photo class]]) {
+        return NO;
+    }
+    Photo *otherPhoto = (Photo *)object;
+    return [self.photoId isEqual:otherPhoto.photoId];
+}
+
 
 @end

@@ -36,7 +36,7 @@
         Photo *photo = [self photoAtIndexPath:indexPath];
         vc.photo = photo;
         
-        [UserDefaultsManager addPhoto:photo];
+        [UserDefaultsManager addPhotoIfNotAlreadyPresent:photo];
     }
 }
 

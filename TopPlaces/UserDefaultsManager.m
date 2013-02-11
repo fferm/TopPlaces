@@ -12,17 +12,27 @@
 
 @implementation UserDefaultsManager
 
-+(void)addPhoto:(Photo *)photo {
++(void)addPhotoIfNotAlreadyPresent:(Photo *)photo {
     NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
     NSMutableArray *defaults = [[userDef objectForKey:RECENT_PHOTOS] mutableCopy];
     if (!defaults) {
         defaults = [NSMutableArray arrayWithCapacity:1];
     }
     
-    [defaults insertObject:photo.flickrDict atIndex:0];
+    if (! [self alreadyHasPhoto:photo]) {
+        [defaults insertObject:photo.flickrDict atIndex:0];
     
-    [userDef setObject:[defaults copy] forKey:RECENT_PHOTOS];
-    [userDef synchronize];
+        [userDef setObject:[defaults copy] forKey:RECENT_PHOTOS];
+        [userDef synchronize];
+    }
+}
+
++(BOOL)alreadyHasPhoto:(Photo *)photo {
+    for (int i = 0; i < [self count]; i++) {
+        Photo *otherPhoto = [self photoAtIndex:i];
+        if ([photo isEqual:otherPhoto]) return YES;
+    }
+    return NO;
 }
 
 +(NSArray *)savedFlickrPhotos {
