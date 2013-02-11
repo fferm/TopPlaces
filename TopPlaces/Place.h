@@ -14,5 +14,6 @@
 @property (nonatomic, readonly) NSArray *photos; // of Photo objects
 
 +(Place *)placeWithFlickrDictionary:(NSDictionary *)dict;
+-(void)resetPhotos;
 
 @end

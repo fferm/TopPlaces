@@ -55,13 +55,20 @@
 }
 
 -(NSArray *)photos {
+    if (!_photos) {
+        [self resetPhotos];
+    }
+    return _photos;
+}
+
+-(void)resetPhotos {
     NSArray *flickrArray = [FlickrFetcher photosInPlace:self.flickrDict maxResults:50];
     NSMutableArray *mutRet = [NSMutableArray array];
     
     for (NSDictionary *flickrPhoto in flickrArray) {
         [mutRet addObject:[Photo photoWithFlickrDictionary:flickrPhoto]];
     }
-    return [mutRet copy];
+    _photos = [mutRet copy];
 }
 
 @end

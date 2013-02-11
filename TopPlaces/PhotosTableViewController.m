@@ -12,28 +12,19 @@
 #import "Photo.h"
 
 @interface PhotosTableViewController ()
-@property (nonatomic, strong) PhotosModel *model;
 
 @end
 
 @implementation PhotosTableViewController
-@synthesize model = _model;
 @synthesize place = _place;
 
--(PhotosModel *)model {
-    if (!_model) {
-        _model = [[PhotosModel alloc] init];
-    }
-    return _model;
-}
 
 -(Photo *)photoAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.model photoAtIndex:indexPath.row];
+    return [self.place.photos objectAtIndex:indexPath.row];
 }
 
 -(void)setPlace:(Place *)place {
     _place = place;
-    self.model.place = place;
     self.title = [NSString stringWithFormat:@"Photos at %@", place.title , nil];
 }
 
@@ -51,7 +42,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.model count];
+    return [self.place.photos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

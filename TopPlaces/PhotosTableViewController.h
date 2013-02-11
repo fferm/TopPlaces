@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhotosModel.h"
 #import "Place.h"
 
 @interface PhotosTableViewController : UITableViewController
