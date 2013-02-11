@@ -10,7 +10,6 @@
 #import "FlickrFetcher.h"
 
 @interface Photo()
-@property (nonatomic, strong) NSDictionary *flickrDict;
 
 @end
 @implementation Photo
@@ -19,6 +18,7 @@
 @synthesize flickrDict = _flickrDict;
 @synthesize url = _url;
 @synthesize image = _image;
+@synthesize photoId = _photoId;
 
 -(NSString *)title {
     NSString *ret = [self titleData];
@@ -52,7 +52,11 @@
     return [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatOriginal];
 }
 
-+(Photo *)photoWithFlickrDictionary:(NSDictionary *)dict {
+-(NSString *) photoId{
+    return [self.flickrDict objectForKey:FLICKR_PHOTO_ID];
+}
+
++(Photo *)photoFromFlickrDictionary:(NSDictionary *)dict {
     Photo *photo = [[Photo alloc] init];
     photo.flickrDict = dict;
     return photo;

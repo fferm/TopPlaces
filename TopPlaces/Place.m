@@ -83,7 +83,7 @@
     NSMutableArray *mutRet = [NSMutableArray array];
     
     for (NSDictionary *flickrPhoto in flickrArray) {
-        [mutRet addObject:[Photo photoWithFlickrDictionary:flickrPhoto]];
+        [mutRet addObject:[Photo photoFromFlickrDictionary:flickrPhoto]];
     }
     _photos = [mutRet copy];
 }

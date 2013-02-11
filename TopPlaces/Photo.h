@@ -13,6 +13,9 @@
 @property (nonatomic, readonly) NSString *subtitle;
 @property (nonatomic, readonly) NSURL *url;
 @property (nonatomic, readonly) UIImage *image;
+@property (nonatomic, readonly) NSString *photoId;
+@property (nonatomic, strong) NSDictionary *flickrDict;
 
-+(Photo *)photoWithFlickrDictionary:(NSDictionary *)dict;
++(Photo *)photoFromFlickrDictionary:(NSDictionary *)dict;
+
 @end

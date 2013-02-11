@@ -63,7 +63,13 @@
                             <outlet property="delegate" destination="awp-AF-uEH" id="LuL-6e-Ss7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Recent" id="CKa-Rd-AuV"/>
+                    <navigationItem key="navigationItem" title="Recent" id="CKa-Rd-AuV">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="JW3-MB-weU">
+                            <connections>
+                                <action selector="clearPressed:" destination="awp-AF-uEH" id="Swp-TS-9bW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJH-O4-XRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

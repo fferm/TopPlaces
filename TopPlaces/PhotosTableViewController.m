@@ -7,9 +7,9 @@
 //
 
 #import "PhotosTableViewController.h"
-#import "PlacesModel.h"
 #import "ImageViewController.h"
 #import "Photo.h"
+#import "UserDefaultsManager.h"
 
 @interface PhotosTableViewController ()
 
@@ -35,6 +35,8 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         Photo *photo = [self photoAtIndexPath:indexPath];
         vc.photo = photo;
+        
+        [UserDefaultsManager addPhoto:photo];
     }
 }
 

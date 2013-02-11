@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B1D187116C46AF200348D1D /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1D187016C46AF200348D1D /* Place.m */; };
+		0B1D187516C9450100348D1D /* UserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1D187416C9450000348D1D /* UserDefaultsManager.m */; };
 		0B3C89FF16B5C95600FB35BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3C89FE16B5C95600FB35BC /* UIKit.framework */; };
 		0B3C8A0116B5C95600FB35BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3C8A0016B5C95600FB35BC /* Foundation.framework */; };
 		0B3C8A0316B5C95600FB35BC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3C8A0216B5C95600FB35BC /* CoreGraphics.framework */; };
@@ -31,6 +32,8 @@
 /* Begin PBXFileReference section */
 		0B1D186F16C46AF200348D1D /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		0B1D187016C46AF200348D1D /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		0B1D187316C9450000348D1D /* UserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsManager.h; sourceTree = "<group>"; };
+		0B1D187416C9450000348D1D /* UserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsManager.m; sourceTree = "<group>"; };
 		0B3C89FA16B5C95600FB35BC /* TopPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B3C89FE16B5C95600FB35BC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0B3C8A0016B5C95600FB35BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +100,15 @@
 			name = DataObjects;
 			sourceTree = "<group>";
 		};
+		0B1D187216C9292400348D1D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0B3C8A1616B5C95600FB35BC /* iPhone.storyboard */,
+				0B3C8A1916B5C95600FB35BC /* iPad.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		0B3C89EF16B5C95600FB35BC = {
 			isa = PBXGroup;
 			children = (
@@ -127,18 +139,20 @@
 		0B3C8A0416B5C95600FB35BC /* TopPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				0B1D187216C9292400348D1D /* Storyboards */,
 				0B1D186D16C46AA300348D1D /* Flickr */,
 				0BC34CA816C06C7300C3420A /* ImageViewController.h */,
 				0BC34CA916C06C7300C3420A /* ImageViewController.m */,
 				0BDF26CD16BB0F0D0042FBA1 /* PhotosTableViewController.h */,
 				0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */,
 				0B1D186E16C46AD500348D1D /* DataObjects */,
-				0B3C8A1916B5C95600FB35BC /* iPad.storyboard */,
 				0B3C8A0516B5C95600FB35BC /* Supporting Files */,
 				0B3C8A2E16B5D0AF00FB35BC /* PlacesTableViewController.h */,
 				0B3C8A2F16B5D0AF00FB35BC /* PlacesTableViewController.m */,
 				0B3C8A3116B73B3100FB35BC /* RecentPhotosViewController.h */,
 				0B3C8A3216B73B3100FB35BC /* RecentPhotosViewController.m */,
+				0B1D187316C9450000348D1D /* UserDefaultsManager.h */,
+				0B1D187416C9450000348D1D /* UserDefaultsManager.m */,
 			);
 			path = TopPlaces;
 			sourceTree = "<group>";
@@ -148,7 +162,6 @@
 			children = (
 				0B3C8A0D16B5C95600FB35BC /* TopPlacesAppDelegate.h */,
 				0B3C8A0E16B5C95600FB35BC /* TopPlacesAppDelegate.m */,
-				0B3C8A1616B5C95600FB35BC /* iPhone.storyboard */,
 				0B3C8A3616B73CD900FB35BC /* globe.png */,
 				0B3C8A0616B5C95600FB35BC /* TopPlaces-Info.plist */,
 				0B3C8A0716B5C95600FB35BC /* InfoPlist.strings */,
@@ -239,6 +252,7 @@
 				0BC34CAA16C06C7300C3420A /* ImageViewController.m in Sources */,
 				0BC34CB416C319F300C3420A /* Photo.m in Sources */,
 				0B1D187116C46AF200348D1D /* Place.m in Sources */,
+				0B1D187516C9450100348D1D /* UserDefaultsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
