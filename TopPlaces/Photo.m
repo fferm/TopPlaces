@@ -9,8 +9,9 @@
 #import "Photo.h"
 #import "FlickrFetcher.h"
 
-@interface Photo()
+static NSMutableDictionary *images = nil;
 
+@interface Photo()
 @end
 @implementation Photo
 @synthesize title = _title;
@@ -42,10 +43,28 @@
 
 -(UIImage *)image {
     if (!_image) {
-        NSData *data = [NSData dataWithContentsOfURL:self.url];
-        _image = [UIImage imageWithData:data];
+        _image = [self createUIImage];
     }
     return _image;
+}
+
+-(UIImage *)createUIImage {
+    if (!images) {
+        images = [NSMutableDictionary dictionary];
+    }
+    
+    UIImage *ret = [images objectForKey:self.photoId];
+
+    if (!ret) {
+        NSData *data = [NSData dataWithContentsOfURL:self.url];
+        ret = [UIImage imageWithData:data];
+
+        if (ret) {
+            [images setObject:ret forKey:self.photoId];
+        }
+    }
+
+    return ret;
 }
 
 -(NSURL *)url {

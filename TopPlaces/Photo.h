@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Image;
 
 @interface Photo : NSObject
 @property (nonatomic, readonly) NSString *title;
