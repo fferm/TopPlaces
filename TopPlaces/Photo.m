@@ -68,7 +68,7 @@ static NSMutableDictionary *images = nil;
 }
 
 -(NSURL *)url {
-    return [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatOriginal];
+    return [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatLarge];
 }
 
 -(NSString *) photoId{
