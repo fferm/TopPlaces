@@ -9,6 +9,7 @@
 #import "RecentPhotosViewController.h"
 #import "Photo.h"
 #import "UserDefaultsManager.h"
+#import "ImageViewController.h"
 
 @interface RecentPhotosViewController ()
 
@@ -21,13 +22,28 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Table view data source
+-(Photo *)photoAtIndexPath:(NSIndexPath *)indexPath {
+    return [UserDefaultsManager photoAtIndex:indexPath.row];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ImageSegue"]) {
+        ImageViewController *vc = segue.destinationViewController;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Photo *photo = [self photoAtIndexPath:indexPath];
+        vc.photo = photo;
+        
+        [UserDefaultsManager addPhotoIfNotAlreadyPresent:photo];
+    }
+}
 
 - (IBAction)clearPressed:(UIBarButtonItem *)sender {
     [UserDefaultsManager clear];
     [self.tableView reloadData];
 }
 
+#pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [UserDefaultsManager count];
