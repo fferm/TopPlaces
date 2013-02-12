@@ -17,6 +17,11 @@
 
 @implementation RecentPhotosViewController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    self.delegate = self;
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
@@ -43,23 +48,29 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Table view data source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+#pragma mark - TopPlacesTableViewControllerDelegate
+
+-(NSString *)titleFor:(id)selectedObject {
+    Photo *photo = (Photo *)selectedObject;
+    return photo.title;
+}
+
+-(NSString *)descriptionFor:(id)selectedObject {
+    Photo *photo = (Photo *)selectedObject;
+    return photo.subtitle;
+}
+
+-(NSString *)cellIdentifier {
+    return @"RecentPhoto";
+}
+
+-(id)selectedObjectAt:(NSIndexPath *)indexPath {
+    return [UserDefaultsManager photoAtIndex:indexPath.row];
+}
+
+-(NSInteger)count {
     return [UserDefaultsManager count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"RecentPhoto";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    Photo *photo = [UserDefaultsManager photoAtIndex:indexPath.row];
-    cell.textLabel.text = photo.title;
-    cell.detailTextLabel.text = photo.subtitle;
-    
-    return cell;
-}
 
 @end

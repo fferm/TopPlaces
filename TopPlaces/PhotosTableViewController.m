@@ -18,6 +18,10 @@
 @implementation PhotosTableViewController
 @synthesize place = _place;
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    self.delegate = self;
+}
 
 -(Photo *)photoAtIndexPath:(NSIndexPath *)indexPath {
     return [self.place.photos objectAtIndex:indexPath.row];
@@ -40,64 +44,30 @@
     }
 }
 
-#pragma mark - Table view data source
+#pragma mark - TopPlacesTableViewControllerDelegate
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+-(NSString *)titleFor:(id)selectedObject {
+    Photo *photo = (Photo *)selectedObject;
+    return photo.title;
+}
+
+-(NSString *)descriptionFor:(id)selectedObject {
+    Photo *photo = (Photo *)selectedObject;
+    return photo.subtitle;
+}
+
+-(NSString *)cellIdentifier {
+    return @"PhotoCell";
+}
+
+-(id)selectedObjectAt:(NSIndexPath *)indexPath {
+    return [self photoAtIndexPath:indexPath];
+}
+
+-(NSInteger)count {
     return [self.place.photos count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *CellIdentifier = @"PhotoCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    Photo *photo = [self photoAtIndexPath:indexPath];
-    cell.textLabel.text = photo.title;
-    cell.detailTextLabel.text = photo.subtitle;
-    
-    return cell;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

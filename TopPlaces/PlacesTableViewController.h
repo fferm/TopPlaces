@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface PlacesTableViewController : UITableViewController
+#import "TopPlacesTableViewController.h"
+@interface PlacesTableViewController : TopPlacesTableViewController<TopPlacesTableViewControllerDelegate>
 
 @end
