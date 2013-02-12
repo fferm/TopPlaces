@@ -22,6 +22,7 @@
 - (void)setUpImage {
     // Configure scrollView
     self.scrollView.delegate = self;
+    self.scrollView.zoomScale = 1.0;
     self.scrollView.minimumZoomScale = 0.1;
     self.scrollView.maximumZoomScale = 10.0;
     
