@@ -7,9 +7,6 @@
 //
 
 #import "PhotosTableViewController.h"
-#import "ImageViewController.h"
-#import "Photo.h"
-#import "UserDefaultsManager.h"
 
 @interface PhotosTableViewController ()
 
@@ -18,45 +15,19 @@
 @implementation PhotosTableViewController
 @synthesize place = _place;
 
--(Photo *)photoAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.place.photos objectAtIndex:indexPath.row];
-}
-
 -(void)setPlace:(Place *)place {
     _place = place;
     self.title = [NSString stringWithFormat:@"Photos at %@", place.title , nil];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ImageSegue"]) {
-        ImageViewController *vc = segue.destinationViewController;
-
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Photo *photo = [self photoAtIndexPath:indexPath];
-        vc.photo = photo;
-        
-        [UserDefaultsManager addPhotoIfNotAlreadyPresent:photo];
-    }
-}
-
 #pragma mark - TopPlacesTableViewControllerDelegate
-
--(NSString *)titleFor:(id)selectedObject {
-    Photo *photo = (Photo *)selectedObject;
-    return photo.title;
-}
-
--(NSString *)descriptionFor:(id)selectedObject {
-    Photo *photo = (Photo *)selectedObject;
-    return photo.subtitle;
-}
 
 -(NSString *)cellIdentifier {
     return @"PhotoCell";
 }
 
 -(id)selectedObjectAt:(NSIndexPath *)indexPath {
-    return [self photoAtIndexPath:indexPath];
+    return [self.place.photos objectAtIndex:indexPath.row];
 }
 
 -(NSInteger)count {

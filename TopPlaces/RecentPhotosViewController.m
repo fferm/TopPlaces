@@ -7,9 +7,7 @@
 //
 
 #import "RecentPhotosViewController.h"
-#import "Photo.h"
 #import "UserDefaultsManager.h"
-#import "ImageViewController.h"
 
 @interface RecentPhotosViewController ()
 
@@ -22,38 +20,16 @@
     [self.tableView reloadData];
 }
 
--(Photo *)photoAtIndexPath:(NSIndexPath *)indexPath {
-    return [UserDefaultsManager photoAtIndex:indexPath.row];
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ImageSegue"]) {
-        ImageViewController *vc = segue.destinationViewController;
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Photo *photo = [self photoAtIndexPath:indexPath];
-        vc.photo = photo;
-        
-        [UserDefaultsManager addPhotoIfNotAlreadyPresent:photo];
-    }
-}
-
 - (IBAction)clearPressed:(UIBarButtonItem *)sender {
     [UserDefaultsManager clear];
     [self.tableView reloadData];
 }
 
+-(NSString *)segueName {
+    return @"ImageSegue";
+}
+
 #pragma mark - TopPlacesTableViewControllerDelegate
-
--(NSString *)titleFor:(id)selectedObject {
-    Photo *photo = (Photo *)selectedObject;
-    return photo.title;
-}
-
--(NSString *)descriptionFor:(id)selectedObject {
-    Photo *photo = (Photo *)selectedObject;
-    return photo.subtitle;
-}
 
 -(NSString *)cellIdentifier {
     return @"RecentPhoto";

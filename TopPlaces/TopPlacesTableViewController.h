@@ -20,6 +20,4 @@
 
 @interface TopPlacesTableViewController : UITableViewController<TopPlacesTableViewControllerDelegate>
 
-@property (nonatomic, strong) id<TopPlacesTableViewControllerDelegate> delegate;
-
 @end

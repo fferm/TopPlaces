@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Place.h"
-#import "TopPlacesTableViewController.h"
+#import "TopPlacesPhotosTableViewController.h"
 
-@interface PhotosTableViewController : TopPlacesTableViewController
+@interface PhotosTableViewController : TopPlacesPhotosTableViewController
 @property (nonatomic, strong) Place *place;
 
 @end
