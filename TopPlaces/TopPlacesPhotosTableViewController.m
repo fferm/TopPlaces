@@ -16,14 +16,27 @@
 
 @implementation TopPlacesPhotosTableViewController
 
--(NSString *)titleFor:(id)selectedObject {
+-(NSString *)cellTitleFor:(id)selectedObject {
     Photo *photo = (Photo *)selectedObject;
-    return photo.title;
+
+    NSString *ret = photo.title;
+    if (!ret || ret.length == 0) {
+        ret = photo.description;
+    }
+    if (!ret || ret.length == 0) {
+        ret = @"Unknown";
+    }
+    
+    return ret;
 }
 
--(NSString *)descriptionFor:(id)selectedObject {
+-(NSString *)cellDescriptionFor:(id)selectedObject {
     Photo *photo = (Photo *)selectedObject;
-    return photo.subtitle;
+    if (photo.title && photo.title.length > 0) {
+        return photo.description;
+    } else {
+        return @"";
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -37,7 +50,5 @@
         [UserDefaultsManager addPhotoIfNotAlreadyPresent:photo];
     }
 }
-
-
 
 @end

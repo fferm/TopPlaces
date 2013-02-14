@@ -26,14 +26,14 @@
 
 #pragma mark - TopPlacesTableViewControllerDelegate
 
--(NSString *)titleFor:(id)selectedObject {
+-(NSString *)cellTitleFor:(id)selectedObject {
     Place *place = (Place *)selectedObject;
     return place.title;
 }
 
--(NSString *)descriptionFor:(id)selectedObject {
+-(NSString *)cellDescriptionFor:(id)selectedObject {
     Place *place = (Place *)selectedObject;
-    return place.subtitle;
+    return place.description;
 }
 
 -(NSString *)cellIdentifier {

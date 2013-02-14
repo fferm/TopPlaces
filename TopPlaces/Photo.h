@@ -11,7 +11,7 @@
 
 @interface Photo : NSObject
 @property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) NSString *subtitle;
+@property (nonatomic, readonly) NSString *description;
 @property (nonatomic, readonly) NSURL *url;
 @property (nonatomic, readonly) UIImage *image;
 @property (nonatomic, readonly) NSString *photoId;

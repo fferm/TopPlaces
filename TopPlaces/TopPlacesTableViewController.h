@@ -10,8 +10,8 @@
 
 @protocol TopPlacesTableViewControllerDelegate <NSObject>
 
--(NSString *)titleFor:(id)selectedObject;
--(NSString *)descriptionFor:(id)selectedObject;
+-(NSString *)cellTitleFor:(id)selectedObject;
+-(NSString *)cellDescriptionFor:(id)selectedObject;
 -(id)selectedObjectAt:(NSIndexPath *)indexPath;
 -(NSString *)cellIdentifier;
 -(NSInteger)count;

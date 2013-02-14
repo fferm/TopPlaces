@@ -10,7 +10,7 @@
 
 @interface Place : NSObject
 @property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) NSString *subtitle;
+@property (nonatomic, readonly) NSString *description;
 @property (nonatomic, readonly) NSArray *photos; // of Photo objects
 
 +(NSArray *)sortedPlaces;

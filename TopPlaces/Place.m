@@ -17,7 +17,7 @@
 @implementation Place
 @synthesize flickrDict = _flickrDict;
 @synthesize title = _title;
-@synthesize subtitle = _subtitle;
+@synthesize description = _description;
 @synthesize photos = _photos;
 
 +(Place *)placeWithFlickrDictionary:(NSDictionary *)dict {
@@ -54,7 +54,7 @@
         return [[self dividedContentString] objectAtIndex:0];
 }
 
--(NSString *)subtitle {
+-(NSString *)description {
     NSMutableArray *desc = [[self dividedContentString] mutableCopy];
     [desc removeObjectAtIndex:0];
         

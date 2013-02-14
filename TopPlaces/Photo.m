@@ -15,30 +15,18 @@ static NSMutableDictionary *images = nil;
 @end
 @implementation Photo
 @synthesize title = _title;
-@synthesize subtitle = _subtitle;
+@synthesize description = _description;
 @synthesize flickrDict = _flickrDict;
 @synthesize url = _url;
 @synthesize image = _image;
 @synthesize photoId = _photoId;
 
 -(NSString *)title {
-    NSString *ret = [self titleData];
-    if (!ret || ret.length == 0) {
-        ret = [self descriptionData];
-    }
-    if (!ret || ret.length == 0) {
-        ret = @"Unknown";
-    }
-    
-    return ret;
+    return [self.flickrDict objectForKey:FLICKR_PHOTO_TITLE];
 }
 
--(NSString *)subtitle {
-    NSString *ret = @"";
-    if (self.title && self.title.length > 0) {
-        ret = [self descriptionData];
-    }
-    return ret;
+-(NSString *)description {
+    return [[self.flickrDict objectForKey:FLICKR_PHOTO_DESCRIPTION] objectForKey:FLICKR_PHOTO_CONTENT];
 }
 
 -(UIImage *)image {
@@ -71,7 +59,7 @@ static NSMutableDictionary *images = nil;
     return [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatLarge];
 }
 
--(NSString *) photoId{
+-(NSString *)photoId{
     return [self.flickrDict objectForKey:FLICKR_PHOTO_ID];
 }
 
@@ -79,14 +67,6 @@ static NSMutableDictionary *images = nil;
     Photo *photo = [[Photo alloc] init];
     photo.flickrDict = dict;
     return photo;
-}
-
--(NSString *)titleData {
-    return [self.flickrDict objectForKey:FLICKR_PHOTO_TITLE];
-}
-
--(NSString *)descriptionData {
-    return [[self.flickrDict objectForKey:FLICKR_PHOTO_DESCRIPTION] objectForKey:FLICKR_PHOTO_CONTENT];
 }
 
 -(BOOL)isEqual:(id)object {

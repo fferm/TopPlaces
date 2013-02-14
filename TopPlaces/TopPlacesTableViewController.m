@@ -23,11 +23,11 @@
 }
 
 #pragma mark - TopPlacesTableViewControllerDelegate
--(NSString *)titleFor:(id)selectedObject {
+-(NSString *)cellTitleFor:(id)selectedObject {
     return nil;
 }
 
--(NSString *)descriptionFor:(id)selectedObject {
+-(NSString *)cellDescriptionFor:(id)selectedObject {
     return nil;
 }
 
@@ -59,8 +59,8 @@
     
     // Configure the cell...
     id selectedObject = [del selectedObjectAt:indexPath];
-    cell.textLabel.text =  [del titleFor:selectedObject];
-    cell.detailTextLabel.text = [del descriptionFor:selectedObject];
+    cell.textLabel.text =  [del cellTitleFor:selectedObject];
+    cell.detailTextLabel.text = [del cellDescriptionFor:selectedObject];
     
     return cell;
 }
