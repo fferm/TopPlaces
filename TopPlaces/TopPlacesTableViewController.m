@@ -15,6 +15,33 @@
 @implementation TopPlacesTableViewController
 @synthesize delegate = _myDelegate;
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    self.delegate = self;
+}
+
+#pragma mark - TopPlacesTableViewControllerDelegate
+-(NSString *)titleFor:(id)selectedObject {
+    return nil;
+}
+
+-(NSString *)descriptionFor:(id)selectedObject {
+    return nil;
+}
+
+-(id)selectedObjectAt:(NSIndexPath *)indexPath; {
+    return nil;
+}
+
+-(NSString *)cellIdentifier {
+    return nil;
+}
+
+-(NSInteger)count {
+    return 0;
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

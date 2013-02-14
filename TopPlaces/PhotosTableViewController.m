@@ -18,11 +18,6 @@
 @implementation PhotosTableViewController
 @synthesize place = _place;
 
--(void)viewDidLoad {
-    [super viewDidLoad];
-    self.delegate = self;
-}
-
 -(Photo *)photoAtIndexPath:(NSIndexPath *)indexPath {
     return [self.place.photos objectAtIndex:indexPath.row];
 }

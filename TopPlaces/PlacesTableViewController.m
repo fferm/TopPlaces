@@ -24,11 +24,6 @@
     return _places;
 }
 
--(void)viewDidLoad {
-    [super viewDidLoad];
-    self.delegate = self;
-}
-
 #pragma mark - TopPlacesTableViewControllerDelegate
 
 -(NSString *)titleFor:(id)selectedObject {

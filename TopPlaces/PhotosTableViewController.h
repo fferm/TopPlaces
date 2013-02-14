@@ -10,7 +10,7 @@
 #import "Place.h"
 #import "TopPlacesTableViewController.h"
 
-@interface PhotosTableViewController : TopPlacesTableViewController <TopPlacesTableViewControllerDelegate>
+@interface PhotosTableViewController : TopPlacesTableViewController
 @property (nonatomic, strong) Place *place;
 
 @end

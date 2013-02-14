@@ -17,11 +17,6 @@
 
 @implementation RecentPhotosViewController
 
--(void)viewDidLoad {
-    [super viewDidLoad];
-    self.delegate = self;
-}
-
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
