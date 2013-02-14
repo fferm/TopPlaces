@@ -25,10 +25,6 @@
     [self.tableView reloadData];
 }
 
--(NSString *)segueName {
-    return @"ImageSegue";
-}
-
 #pragma mark - TopPlacesTableViewControllerDelegate
 
 -(NSString *)cellIdentifier {
