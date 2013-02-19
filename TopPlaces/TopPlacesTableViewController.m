@@ -43,15 +43,19 @@
     return 0;
 }
 
+-(NSInteger)countOfSections {
+    return 1;
+}
+
+-(NSString *)sectionHeaderTitle:(NSInteger)section {
+    return nil;
+}
+
 
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if ([self.delegate respondsToSelector:@selector(countOfSections)]) {
-        return [self.delegate countOfSections];
-    } else {
-        return 1;
-    }
+    return [self.delegate countOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -74,11 +78,7 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if ([self.delegate respondsToSelector:@selector(sectionHeaderTitle:)]) {
-        return [self.delegate sectionHeaderTitle:section];
-    } else {
-        return nil;
-    }
+    return [self.delegate sectionHeaderTitle:section];
 }
 
 /*#pragma mark - Table view delegate

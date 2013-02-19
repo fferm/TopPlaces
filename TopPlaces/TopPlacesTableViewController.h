@@ -16,7 +16,6 @@
 -(NSString *)cellIdentifier;
 -(NSInteger)countForSection:(NSInteger)section;
 
-@optional
 -(NSInteger)countOfSections;
 -(NSString *)sectionHeaderTitle:(NSInteger)section;
 
