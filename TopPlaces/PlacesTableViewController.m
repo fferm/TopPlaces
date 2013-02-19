@@ -11,18 +11,90 @@
 #import "Place.h"
 
 @interface PlacesTableViewController ()
-@property (nonatomic, strong)NSArray *places;
+@property (nonatomic, strong)NSArray *sortedCountries;
+@property (nonatomic, strong)NSDictionary *placesByCountry; //Holds an NSArray* with places for a specific country.  Key is country string
 @end
 
 @implementation PlacesTableViewController
-@synthesize places = _places;
+@synthesize sortedCountries = _sortedCountries;
+@synthesize placesByCountry = _placesByCountry;
 
--(NSArray *)places {
-    if (!_places) {
-        _places  = [Place sortedPlaces];
+-(NSArray *)sortedCountries {
+    if (!_sortedCountries) {
+        NSMutableSet *set = [NSMutableSet set];
+    
+        for (Place *place in [Place topPlaces]) {
+            [set addObject:place.country];
+        }
+        
+        _sortedCountries = [set allObjects];
+        _sortedCountries = [_sortedCountries sortedArrayUsingComparator: ^(id obj1, id obj2) {
+            NSString *s1 = (NSString *)obj1;
+            NSString *s2 = (NSString *)obj2;
+            return [s1 compare:s2];
+        }];
     }
-    return _places;
+    return _sortedCountries;
 }
+
+-(NSDictionary *)placesByCountry {
+    if (!_placesByCountry) {
+        
+        // Fill a mutable copy of the dictionary
+        NSMutableDictionary *mutDict = [NSMutableDictionary dictionary];
+        for (Place *place in [Place topPlaces]) {
+            NSMutableArray *mutArray = [mutDict objectForKey:place.country];
+            if (!mutArray) {
+                mutArray = [NSMutableArray array];
+                [mutDict setObject:mutArray forKey:place.country];
+            }
+            
+            [mutArray addObject:place];
+        }
+        
+        // In each country, sort places by title
+        for (NSString *country in [mutDict allKeys]) {
+            NSMutableArray *mutArray = [mutDict objectForKey:country];
+            
+            NSArray *placeArray = [mutArray sortedArrayUsingComparator:[Place comparator]];
+            
+            [mutDict removeObjectForKey:country];
+            [mutDict setObject:placeArray forKey:country];
+        }
+
+        // Make non-mutable
+        _placesByCountry = [mutDict copy];
+        
+    }
+    return _placesByCountry;
+}
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PhotosSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Place *place = [self selectedObjectAt:indexPath];
+        
+        PhotosTableViewController *destination = segue.destinationViewController;
+        destination.place = place;
+    }
+}
+
+
+#pragma mark - UITableViewDataSource
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.sortedCountries.count;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [self.sortedCountries objectAtIndex:section];
+}
+
+
+
+
+
 
 #pragma mark - TopPlacesTableViewControllerDelegate
 
@@ -33,7 +105,7 @@
 
 -(NSString *)cellDescriptionFor:(id)selectedObject {
     Place *place = (Place *)selectedObject;
-    return place.description;
+    return place.location;
 }
 
 -(NSString *)cellIdentifier {
@@ -41,21 +113,15 @@
 }
 
 -(id)selectedObjectAt:(NSIndexPath *)indexPath {
-    return [self.places objectAtIndex:indexPath.row];
+    NSString *country = [self.sortedCountries objectAtIndex:indexPath.section];
+    NSArray *placesInCountry = [self.placesByCountry objectForKey:country];
+    return [placesInCountry objectAtIndex:indexPath.row];
 }
 
--(NSInteger)count {
-    return [self.places count];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"PhotosSegue"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Place *place = [self.places objectAtIndex:indexPath.row];
-        
-        PhotosTableViewController *destination = segue.destinationViewController;
-        destination.place = place;
-    }
+-(NSInteger)countForSection:(NSInteger)section {
+    NSString *country = [self.sortedCountries objectAtIndex:section];
+    NSArray *placesInCountry = [self.placesByCountry objectForKey:country];
+    return placesInCountry.count;
 }
 
 

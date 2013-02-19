@@ -10,10 +10,12 @@
 
 @interface Place : NSObject
 @property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) NSString *description;
+@property (nonatomic, readonly) NSString *location;
+@property (nonatomic, readonly) NSString *country;
 @property (nonatomic, readonly) NSArray *photos; // of Photo objects
 
-+(NSArray *)sortedPlaces;
++(NSArray *)topPlaces;
++(NSComparator)comparator;
 
 -(void)resetPhotos;
 

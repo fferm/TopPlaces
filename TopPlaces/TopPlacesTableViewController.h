@@ -14,7 +14,7 @@
 -(NSString *)cellDescriptionFor:(id)selectedObject;
 -(id)selectedObjectAt:(NSIndexPath *)indexPath;
 -(NSString *)cellIdentifier;
--(NSInteger)count;
+-(NSInteger)countForSection:(NSInteger)section;
 
 @end
 

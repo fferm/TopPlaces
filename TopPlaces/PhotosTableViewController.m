@@ -30,7 +30,7 @@
     return [self.place.photos objectAtIndex:indexPath.row];
 }
 
--(NSInteger)count {
+-(NSInteger)countForSection:(NSInteger)section {
     return [self.place.photos count];
 }
 

@@ -39,7 +39,7 @@
     return nil;
 }
 
--(NSInteger)count {
+-(NSInteger)countForSection:(NSInteger)section {
     return 0;
 }
 
@@ -48,7 +48,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.delegate count];
+    return [self.delegate countForSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

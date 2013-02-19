@@ -17,18 +17,19 @@
 @implementation Place
 @synthesize flickrDict = _flickrDict;
 @synthesize title = _title;
-@synthesize description = _description;
+@synthesize location = _location;
 @synthesize photos = _photos;
+@synthesize country = _country;
 
 +(Place *)placeWithFlickrDictionary:(NSDictionary *)dict {
     Place *place = [[Place alloc] init];
     
     place.flickrDict = dict;
-    
+
     return place;
 }
 
-+(NSArray *)sortedPlaces {
++(NSArray *)topPlaces {
     NSArray *flickrPlaces = [FlickrFetcher topPlaces];
     
     NSMutableArray *mutRet = [[NSMutableArray alloc] initWithCapacity:0];
@@ -36,13 +37,16 @@
     for (NSDictionary *flickrPlace in flickrPlaces) {
         [mutRet addObject:[Place placeWithFlickrDictionary:flickrPlace]];
     }
-    
-    return [mutRet sortedArrayUsingComparator: ^(id obj1, id obj2) {
+    return [mutRet copy];
+}
+
++(NSComparator)comparator {
+    return ^(id obj1, id obj2) {
         Place *p1 = (Place *)obj1;
         Place *p2 = (Place *)obj2;
         
         return [p1.title compare:p2.title];
-    }];
+    };
 }
 
 -(NSArray *) dividedContentString {
@@ -54,7 +58,11 @@
         return [[self dividedContentString] objectAtIndex:0];
 }
 
--(NSString *)description {
+-(NSString *)country {
+    return [[self dividedContentString] lastObject];
+}
+
+-(NSString *)location {
     NSMutableArray *desc = [[self dividedContentString] mutableCopy];
     [desc removeObjectAtIndex:0];
         

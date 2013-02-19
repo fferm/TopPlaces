@@ -35,7 +35,7 @@
     return [UserDefaultsManager photoAtIndex:indexPath.row];
 }
 
--(NSInteger)count {
+-(NSInteger)countForSection:(NSInteger)section {
     return [UserDefaultsManager count];
 }
 
