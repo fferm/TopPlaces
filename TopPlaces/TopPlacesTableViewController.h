@@ -16,6 +16,10 @@
 -(NSString *)cellIdentifier;
 -(NSInteger)countForSection:(NSInteger)section;
 
+@optional
+-(NSInteger)countOfSections;
+-(NSString *)sectionHeaderTitle:(NSInteger)section;
+
 @end
 
 @interface TopPlacesTableViewController : UITableViewController<TopPlacesTableViewControllerDelegate>

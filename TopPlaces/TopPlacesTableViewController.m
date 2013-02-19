@@ -46,6 +46,14 @@
 
 #pragma mark - Table view data source
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if ([self.delegate respondsToSelector:@selector(countOfSections)]) {
+        return [self.delegate countOfSections];
+    } else {
+        return 1;
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.delegate countForSection:section];
@@ -65,6 +73,13 @@
     return cell;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if ([self.delegate respondsToSelector:@selector(sectionHeaderTitle:)]) {
+        return [self.delegate sectionHeaderTitle:section];
+    } else {
+        return nil;
+    }
+}
 
 /*#pragma mark - Table view delegate
 

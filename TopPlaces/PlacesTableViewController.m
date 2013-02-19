@@ -80,22 +80,6 @@
     }
 }
 
-
-#pragma mark - UITableViewDataSource
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.sortedCountries.count;
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [self.sortedCountries objectAtIndex:section];
-}
-
-
-
-
-
-
 #pragma mark - TopPlacesTableViewControllerDelegate
 
 -(NSString *)cellTitleFor:(id)selectedObject {
@@ -122,6 +106,14 @@
     NSString *country = [self.sortedCountries objectAtIndex:section];
     NSArray *placesInCountry = [self.placesByCountry objectForKey:country];
     return placesInCountry.count;
+}
+
+-(NSInteger)countOfSections {
+    return self.sortedCountries.count;
+}
+
+-(NSString *)sectionHeaderTitle:(NSInteger)section {
+    return [self.sortedCountries objectAtIndex:section];
 }
 
 
