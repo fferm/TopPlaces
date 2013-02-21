@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="H69-rc-Guf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="H69-rc-Guf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -203,7 +203,7 @@
             </objects>
             <point key="canvasLocation" x="1403" y="1077"/>
         </scene>
-        <!--Map View Controller - Places-->
+        <!--Map View Controller - Map-->
         <scene sceneID="urb-Gh-Sil">
             <objects>
                 <viewController id="egz-Ma-Qeh" customClass="MapViewController" sceneMemberID="viewController">
@@ -218,7 +218,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Places" id="ARi-N5-sT5"/>
+                    <navigationItem key="navigationItem" title="Map" id="ARi-N5-sT5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaU-mS-bhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,9 +284,6 @@
         </class>
         <class className="RecentPhotosViewController" superclassName="TopPlacesPhotosTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearPressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
         </class>
         <class className="TopPlacesPhotosTableViewController" superclassName="TopPlacesTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPlacesPhotosTableViewController.h"/>
