@@ -7,12 +7,16 @@
 //
 
 #import "MapViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface MapViewController ()
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
 @implementation MapViewController
+@synthesize places = _places;
+@synthesize mapView = _mapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

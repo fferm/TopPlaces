@@ -219,6 +219,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="ARi-N5-sT5"/>
+                    <connections>
+                        <outlet property="mapView" destination="z3A-pA-e7e" id="nWa-eu-Ije"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaU-mS-bhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -275,6 +278,9 @@
         </class>
         <class className="MapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
         </class>
         <class className="PhotosTableViewController" superclassName="TopPlacesPhotosTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotosTableViewController.h"/>
@@ -284,6 +290,9 @@
         </class>
         <class className="RecentPhotosViewController" superclassName="TopPlacesPhotosTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentPhotosViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="TopPlacesPhotosTableViewController" superclassName="TopPlacesTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPlacesPhotosTableViewController.h"/>
