@@ -26,16 +26,23 @@
     self.scrollView.minimumZoomScale = 0.1;
     self.scrollView.maximumZoomScale = 10.0;
     
-    self.imageView = [[UIImageView alloc] initWithImage:self.photo.image];
-    [self.scrollView addSubview:self.imageView];
-    
-    // Configure sizes
-    self.scrollView.contentSize = self.imageView.image.size;
-    CGRect zoomRect = CGRectMake(0.0,
-                                 0.0,
-                                 self.scrollView.contentSize.width,
-                                 self.scrollView.contentSize.height);
-    [self.scrollView zoomToRect:zoomRect animated:NO];
+    dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        UIImage *image = self.photo.image;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imageView = [[UIImageView alloc] initWithImage:image];
+            [self.scrollView addSubview:self.imageView];
+            
+            // Configure sizes
+            self.scrollView.contentSize = self.imageView.image.size;
+            CGRect zoomRect = CGRectMake(0.0,
+                                         0.0,
+                                         self.scrollView.contentSize.width,
+                                         self.scrollView.contentSize.height);
+            [self.scrollView zoomToRect:zoomRect animated:NO];
+        });
+    });
 }
 
 -(void)setUpNavigationBar {
