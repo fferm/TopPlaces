@@ -8,6 +8,7 @@
 
 #import "PlacesTableViewController.h"
 #import "PhotosTableViewController.h"
+#import "MapViewController.h"
 #import "Place.h"
 
 @interface PlacesTableViewController ()
@@ -102,6 +103,9 @@
         
         PhotosTableViewController *destination = segue.destinationViewController;
         destination.place = place;
+    } else if ([segue.identifier isEqualToString:@"MapSegue"]) {
+        MapViewController *destination = segue.destinationViewController;
+        //        destination.navigationItem.backBarButtonItem.title = @"Hej";
     }
 }
 

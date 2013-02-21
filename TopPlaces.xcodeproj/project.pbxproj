@@ -30,6 +30,8 @@
 		0BC34CB416C319F300C3420A /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC34CB316C319F300C3420A /* Photo.m */; };
 		0BD8646F16D66AF000946EA1 /* AnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD8646E16D66AF000946EA1 /* AnimationHelper.m */; };
 		0BDF26CF16BB0F0D0042FBA1 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */; };
+		0BFC44EA16D6B835007F170C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFC44E916D6B835007F170C /* MapKit.framework */; };
+		0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC44ED16D6B8C1007F170C /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,9 @@
 		0BD8646E16D66AF000946EA1 /* AnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationHelper.m; sourceTree = "<group>"; };
 		0BDF26CD16BB0F0D0042FBA1 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
 		0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
+		0BFC44E916D6B835007F170C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0BFC44EC16D6B8C1007F170C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		0BFC44ED16D6B8C1007F170C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFC44EA16D6B835007F170C /* MapKit.framework in Frameworks */,
 				0B3C89FF16B5C95600FB35BC /* UIKit.framework in Frameworks */,
 				0B3C8A0116B5C95600FB35BC /* Foundation.framework in Frameworks */,
 				0B3C8A0316B5C95600FB35BC /* CoreGraphics.framework in Frameworks */,
@@ -128,6 +134,8 @@
 				0BC34CA916C06C7300C3420A /* ImageViewController.m */,
 				0BD8646D16D66AF000946EA1 /* AnimationHelper.h */,
 				0BD8646E16D66AF000946EA1 /* AnimationHelper.m */,
+				0BFC44EC16D6B8C1007F170C /* MapViewController.h */,
+				0BFC44ED16D6B8C1007F170C /* MapViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -160,6 +168,7 @@
 		0B3C89EF16B5C95600FB35BC = {
 			isa = PBXGroup;
 			children = (
+				0BFC44E916D6B835007F170C /* MapKit.framework */,
 				0B3C8A0416B5C95600FB35BC /* TopPlaces */,
 				0B3C89FD16B5C95600FB35BC /* Frameworks */,
 				0B3C89FB16B5C95600FB35BC /* Products */,
@@ -295,6 +304,7 @@
 				0B1D187C16CAF8E300348D1D /* TopPlacesTableViewController.m in Sources */,
 				0B1D187F16CD986C00348D1D /* TopPlacesPhotosTableViewController.m in Sources */,
 				0BD8646F16D66AF000946EA1 /* AnimationHelper.m in Sources */,
+				0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
