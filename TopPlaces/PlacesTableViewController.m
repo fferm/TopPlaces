@@ -104,7 +104,7 @@
         PhotosTableViewController *destination = segue.destinationViewController;
         destination.place = place;
     } else if ([segue.identifier isEqualToString:@"MapSegue"]) {
-        MapViewController *destination = segue.destinationViewController;
+//        MapViewController *destination = segue.destinationViewController;
         //        destination.navigationItem.backBarButtonItem.title = @"Hej";
     }
 }
