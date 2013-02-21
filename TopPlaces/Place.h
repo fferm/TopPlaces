@@ -12,11 +12,10 @@
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *location;
 @property (nonatomic, readonly) NSString *country;
-@property (nonatomic, readonly) NSArray *photos; // of Photo objects
+
+-(NSArray *)getPhotos; // of Photo objects
 
 +(NSArray *)topPlaces;
 +(NSComparator)comparator;
-
--(void)resetPhotos;
 
 @end

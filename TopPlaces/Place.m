@@ -12,14 +12,16 @@
 
 @interface Place()
 @property (nonatomic, strong) NSDictionary *flickrDict;
+@property (nonatomic, strong) NSArray *photos;
+
 @end
 
 @implementation Place
 @synthesize flickrDict = _flickrDict;
 @synthesize title = _title;
 @synthesize location = _location;
-@synthesize photos = _photos;
 @synthesize country = _country;
+@synthesize photos = _photos;
 
 +(Place *)placeWithFlickrDictionary:(NSDictionary *)dict {
     Place *place = [[Place alloc] init];
@@ -79,21 +81,18 @@
     return ret;
 }
 
--(NSArray *)photos {
+-(NSArray *)getPhotos {
     if (!_photos) {
-        [self resetPhotos];
+        NSArray *flickrArray = [FlickrFetcher photosInPlace:self.flickrDict maxResults:50];
+        NSMutableArray *mutRet = [NSMutableArray array];
+        
+        for (NSDictionary *flickrPhoto in flickrArray) {
+            [mutRet addObject:[Photo photoFromFlickrDictionary:flickrPhoto]];
+        }
+        _photos = [mutRet copy];
     }
     return _photos;
 }
 
--(void)resetPhotos {
-    NSArray *flickrArray = [FlickrFetcher photosInPlace:self.flickrDict maxResults:50];
-    NSMutableArray *mutRet = [NSMutableArray array];
-    
-    for (NSDictionary *flickrPhoto in flickrArray) {
-        [mutRet addObject:[Photo photoFromFlickrDictionary:flickrPhoto]];
-    }
-    _photos = [mutRet copy];
-}
 
 @end

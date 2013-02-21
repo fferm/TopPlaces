@@ -9,11 +9,30 @@
 #import "PhotosTableViewController.h"
 
 @interface PhotosTableViewController ()
-
+@property (nonatomic, strong) NSArray *photos;
 @end
 
 @implementation PhotosTableViewController
 @synthesize place = _place;
+@synthesize photos = _photos;
+
+-(NSArray *)photos {
+    if (!_photos) {
+        dispatch_queue_t downloadQueue = dispatch_queue_create("photos downloader", NULL);
+        dispatch_async(downloadQueue, ^{
+            NSArray *photos = [self.place getPhotos];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.photos = photos;
+            });
+        });
+    }
+    return _photos;
+}
+
+-(void)setPhotos:(NSArray *)photos {
+    _photos = photos;
+    [self.tableView reloadData];
+}
 
 -(void)setPlace:(Place *)place {
     _place = place;
@@ -27,11 +46,11 @@
 }
 
 -(id)selectedObjectAt:(NSIndexPath *)indexPath {
-    return [self.place.photos objectAtIndex:indexPath.row];
+    return [self.photos objectAtIndex:indexPath.row];
 }
 
 -(NSInteger)countForSection:(NSInteger)section {
-    return [self.place.photos count];
+    return [self.photos count];
 }
 
 
