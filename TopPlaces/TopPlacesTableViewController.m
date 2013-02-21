@@ -16,10 +16,18 @@
 
 @implementation TopPlacesTableViewController
 @synthesize delegate = _myDelegate;
+@synthesize animationHelper = _animationHelper;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
+}
+
+-(AnimationHelper *)animationHelper {
+    if (!_animationHelper) {
+        _animationHelper = [[AnimationHelper alloc] init];
+    }
+    return _animationHelper;
 }
 
 #pragma mark - TopPlacesTableViewControllerDelegate

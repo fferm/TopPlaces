@@ -18,11 +18,15 @@
 
 -(NSArray *)photos {
     if (!_photos) {
+        
+        [self.animationHelper startAnimationOn:self];
+        
         dispatch_queue_t downloadQueue = dispatch_queue_create("photos downloader", NULL);
         dispatch_async(downloadQueue, ^{
             NSArray *photos = [self.place getPhotos];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.photos = photos;
+                [self.animationHelper stopAnimation];
             });
         });
     }

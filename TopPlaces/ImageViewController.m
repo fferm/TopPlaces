@@ -8,18 +8,19 @@
 
 #import "ImageViewController.h"
 #import "Photo.h"
+#import "AnimationHelper.h"
 
 @interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
-@property (strong, nonatomic) UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) AnimationHelper *animationHelper;
 @end
 
 @implementation ImageViewController
 @synthesize photo = _photo;
 @synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
-@synthesize spinner = _spinner;
+@synthesize animationHelper = _animationHelper;
 
 - (void)setUpImage {
     // Configure scrollView
@@ -28,7 +29,7 @@
     self.scrollView.minimumZoomScale = 0.1;
     self.scrollView.maximumZoomScale = 10.0;
     
-    [self startAnimation];
+    [self.animationHelper startAnimationOn:self];
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
     dispatch_async(downloadQueue, ^{
@@ -45,22 +46,18 @@
                                          self.scrollView.contentSize.width,
                                          self.scrollView.contentSize.height);
             [self.scrollView zoomToRect:zoomRect animated:NO];
-            [self stopAnimation];
+            [self.animationHelper stopAnimation];
         });
     });
 }
 
--(void)startAnimation {
-    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:  UIActivityIndicatorViewStyleGray];
-    self.spinner.hidesWhenStopped = YES;
-    [self.spinner startAnimating];
-
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.spinner];
+-(AnimationHelper *)animationHelper {
+    if (!_animationHelper) {
+        _animationHelper = [[AnimationHelper alloc] init];
+    }
+    return _animationHelper;
 }
 
--(void)stopAnimation {
-    [self.spinner stopAnimating];
-}
 -(void)setUpNavigationBar {
     self.title = self.photo.title;;
 }
