@@ -13,17 +13,39 @@
 @interface PlacesTableViewController ()
 @property (nonatomic, strong)NSArray *sortedCountries;
 @property (nonatomic, strong)NSDictionary *placesByCountry; //Holds an NSArray* with places for a specific country.  Key is country string
+@property (nonatomic, strong)NSArray *nonSortedPlaces;
 @end
 
 @implementation PlacesTableViewController
 @synthesize sortedCountries = _sortedCountries;
 @synthesize placesByCountry = _placesByCountry;
+@synthesize nonSortedPlaces = _nonSortedPlaces;
+
+-(NSArray *)nonSortedPlaces {
+    if (!_nonSortedPlaces) {
+        dispatch_queue_t downloadQueue = dispatch_queue_create("places downloader", NULL);
+        dispatch_async(downloadQueue, ^{
+            NSArray *topPlaces = [Place topPlaces];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.nonSortedPlaces = topPlaces;
+            });
+        });
+    }
+    return _nonSortedPlaces;
+}
+
+-(void)setNonSortedPlaces:(NSArray *)nonSortedPlaces {
+    _nonSortedPlaces = nonSortedPlaces;
+    _sortedCountries = nil;
+    _placesByCountry = nil;
+    [self.tableView reloadData];
+}
 
 -(NSArray *)sortedCountries {
     if (!_sortedCountries) {
         NSMutableSet *set = [NSMutableSet set];
     
-        for (Place *place in [Place topPlaces]) {
+        for (Place *place in self.nonSortedPlaces) {
             [set addObject:place.country];
         }
         
@@ -39,10 +61,9 @@
 
 -(NSDictionary *)placesByCountry {
     if (!_placesByCountry) {
-        
         // Fill a mutable copy of the dictionary
         NSMutableDictionary *mutDict = [NSMutableDictionary dictionary];
-        for (Place *place in [Place topPlaces]) {
+        for (Place *place in self.nonSortedPlaces) {
             NSMutableArray *mutArray = [mutDict objectForKey:place.country];
             if (!mutArray) {
                 mutArray = [NSMutableArray array];
