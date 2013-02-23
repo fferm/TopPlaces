@@ -32,6 +32,7 @@
 		0BDF26CF16BB0F0D0042FBA1 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */; };
 		0BFC44EA16D6B835007F170C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFC44E916D6B835007F170C /* MapKit.framework */; };
 		0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC44ED16D6B8C1007F170C /* MapViewController.m */; };
+		5356030B16D98114000C0946 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5356030A16D98114000C0946 /* Annotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,8 @@
 		0BFC44E916D6B835007F170C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0BFC44EC16D6B8C1007F170C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		0BFC44ED16D6B8C1007F170C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		5356030916D98114000C0946 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		5356030A16D98114000C0946 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,13 +132,12 @@
 		0B1D187916CAF81F00348D1D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5356030816D980E7000C0946 /* MapView */,
 				0B1D188016CD98EB00348D1D /* TableViewController */,
 				0BC34CA816C06C7300C3420A /* ImageViewController.h */,
 				0BC34CA916C06C7300C3420A /* ImageViewController.m */,
 				0BD8646D16D66AF000946EA1 /* AnimationHelper.h */,
 				0BD8646E16D66AF000946EA1 /* AnimationHelper.m */,
-				0BFC44EC16D6B8C1007F170C /* MapViewController.h */,
-				0BFC44ED16D6B8C1007F170C /* MapViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -222,6 +224,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5356030816D980E7000C0946 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				0BFC44EC16D6B8C1007F170C /* MapViewController.h */,
+				0BFC44ED16D6B8C1007F170C /* MapViewController.m */,
+				5356030916D98114000C0946 /* Annotation.h */,
+				5356030A16D98114000C0946 /* Annotation.m */,
+			);
+			name = MapView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,6 +318,7 @@
 				0B1D187F16CD986C00348D1D /* TopPlacesPhotosTableViewController.m in Sources */,
 				0BD8646F16D66AF000946EA1 /* AnimationHelper.m in Sources */,
 				0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */,
+				5356030B16D98114000C0946 /* Annotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -104,10 +104,9 @@
         PhotosTableViewController *destination = segue.destinationViewController;
         destination.place = place;
     } else if ([segue.identifier isEqualToString:@"MapSegue"]) {
-//        MapViewController *destination = segue.destinationViewController;
-//        NSLog(@"Hej: %@", destination.navigationItem.leftBarButtonItem.description);
- //       NSLog(destination.navigationItem.leftBarButtonItem.title);
-        //        destination.navigationItem.backBarButtonItem.title = @"Hej";
+        MapViewController *destination = segue.destinationViewController;
+        
+        destination.places = [self.nonSortedPlaces copy];
     }
 }
 

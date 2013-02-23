@@ -22,6 +22,8 @@
 @synthesize location = _location;
 @synthesize country = _country;
 @synthesize photos = _photos;
+@synthesize latitude = _latitude;
+@synthesize longitude = _longitude;
 
 +(Place *)placeWithFlickrDictionary:(NSDictionary *)dict {
     Place *place = [[Place alloc] init];
@@ -94,5 +96,12 @@
     return _photos;
 }
 
+-(NSNumber *)latitude {
+    return [self.flickrDict objectForKey:FLICKR_LATITUDE];
+}
+
+-(NSNumber *)longitude {
+    return [self.flickrDict objectForKey:FLICKR_LONGITUDE];
+}
 
 @end
