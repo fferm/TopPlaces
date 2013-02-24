@@ -32,6 +32,7 @@
 		0BDF26CF16BB0F0D0042FBA1 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */; };
 		0BFC44EA16D6B835007F170C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFC44E916D6B835007F170C /* MapKit.framework */; };
 		0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC44ED16D6B8C1007F170C /* MapViewController.m */; };
+		0BFC44F516DA9BB4007F170C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFC44F416DA9BB4007F170C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		0BFC44E916D6B835007F170C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0BFC44EC16D6B8C1007F170C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		0BFC44ED16D6B8C1007F170C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		0BFC44F416DA9BB4007F170C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFC44F516DA9BB4007F170C /* CoreLocation.framework in Frameworks */,
 				0BFC44EA16D6B835007F170C /* MapKit.framework in Frameworks */,
 				0B3C89FF16B5C95600FB35BC /* UIKit.framework in Frameworks */,
 				0B3C8A0116B5C95600FB35BC /* Foundation.framework in Frameworks */,
@@ -167,6 +170,7 @@
 		0B3C89EF16B5C95600FB35BC = {
 			isa = PBXGroup;
 			children = (
+				0BFC44F416DA9BB4007F170C /* CoreLocation.framework */,
 				0BFC44E916D6B835007F170C /* MapKit.framework */,
 				0B3C8A0416B5C95600FB35BC /* TopPlaces */,
 				0B3C89FD16B5C95600FB35BC /* Frameworks */,

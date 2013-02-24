@@ -31,9 +31,42 @@
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotations:self.places];
 
-    // Set center
+    [self updateCenter];
     
     [self.mapView setNeedsDisplay];
+}
+
+-(void) updateCenter {
+    if (self.mapView.annotations) {
+        CLLocationDegrees maxLat, minLat, maxLon, minLon;
+        
+        for (id<MKAnnotation> annotation in self.mapView.annotations) {
+            CLLocationCoordinate2D coord = [annotation coordinate];
+            
+            if (coord.latitude > maxLat) {
+                maxLat = coord.latitude;
+            }
+            if (coord.latitude < minLat) {
+                minLat = coord.latitude;
+            }
+            
+            if (coord.longitude > maxLon) {
+                maxLon = coord.longitude;
+            }
+            
+            if (coord.longitude < minLon) {
+                minLon = coord.longitude;
+            }
+        }
+        
+        CLLocationCoordinate2D center = CLLocationCoordinate2DMake(
+                                                                   (maxLat + minLat) / 2.0,
+                                                                   (maxLon + minLon) / 2.0);
+        
+        MKCoordinateSpan span = MKCoordinateSpanMake(maxLat - minLat, maxLon - minLon);
+        
+        [self.mapView setRegion:MKCoordinateRegionMake(center, span)];
+    }
 }
 
 - (void)viewDidLoad
