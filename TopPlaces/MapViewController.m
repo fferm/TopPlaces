@@ -8,7 +8,6 @@
 
 #import "MapViewController.h"
 #import "Place.h"
-#import "Annotation.h"
 
 @interface MapViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -30,9 +29,7 @@
 
 -(void)updateMap {
     [self.mapView removeAnnotations:self.mapView.annotations];
-    for (Place *place in self.places) {
-        [self.mapView addAnnotation:[Annotation createWithPlace:place]];
-    }
+    [self.mapView addAnnotations:self.places];
 
     // Set center
     

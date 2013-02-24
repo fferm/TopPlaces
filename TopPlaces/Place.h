@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@interface Place : NSObject
+@interface Place : NSObject<MKAnnotation>
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *location;
 @property (nonatomic, readonly) NSString *country;
-@property (nonatomic, readonly) NSNumber *latitude;
-@property (nonatomic, readonly) NSNumber *longitude
 ;
 -(NSArray *)getPhotos; // of Photo objects
 
