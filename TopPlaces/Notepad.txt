@@ -1,4 +1,3 @@
 subtitle på foton i kartan
-center och zoom för foton i samma ort (hänvisning till att startvärden på lat och lon är 0)
 bilder på annotation view för foton
 varningar för mapviewcontrollerdelegate

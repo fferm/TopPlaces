@@ -40,23 +40,26 @@
     if (self.mapView.annotations && self.mapView.annotations.count > 0) {
         CLLocationDegrees maxLat, minLat, maxLon, minLon;
         
+        BOOL firstTime = YES;
         for (id<MKAnnotation> annotation in self.mapView.annotations) {
             CLLocationCoordinate2D coord = [annotation coordinate];
             
-            if (coord.latitude > maxLat) {
+            if (firstTime || coord.latitude > maxLat) {
                 maxLat = coord.latitude;
             }
-            if (coord.latitude < minLat) {
+            if (firstTime || coord.latitude < minLat) {
                 minLat = coord.latitude;
             }
             
-            if (coord.longitude > maxLon) {
+            if (firstTime || coord.longitude > maxLon) {
                 maxLon = coord.longitude;
             }
             
-            if (coord.longitude < minLon) {
+            if (firstTime || coord.longitude < minLon) {
                 minLon = coord.longitude;
             }
+            
+            firstTime = NO;
         }
         
         CLLocationCoordinate2D center = CLLocationCoordinate2DMake(
