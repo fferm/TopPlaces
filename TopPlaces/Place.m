@@ -22,6 +22,8 @@
 @synthesize location = _location;
 @synthesize country = _country;
 @synthesize photos = _photos;
+@synthesize subtitle = _subtitle;
+
 
 +(Place *)placeWithFlickrDictionary:(NSDictionary *)dict {
     Place *place = [[Place alloc] init];
@@ -79,6 +81,10 @@
     }
         
     return ret;
+}
+
+-(NSString *)subtitle {
+    return self.location;
 }
 
 -(NSArray *)getPhotos {
