@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 
 @protocol MapViewControllerDelegate <NSObject>
+@optional
 -(NSArray *)annotations;
 
 @end
