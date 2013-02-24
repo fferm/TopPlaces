@@ -25,6 +25,15 @@
     [self.tableView reloadData];
 }
 
+-(NSArray *)annotations {
+    NSMutableArray *annotations = [NSMutableArray array];
+
+    for (int i = 0; i < [UserDefaultsManager count]; i++) {
+        [annotations addObject:[UserDefaultsManager photoAtIndex:i]];
+    }
+    return [annotations copy];
+}
+
 #pragma mark - TopPlacesTableViewControllerDelegate
 
 -(NSString *)cellIdentifier {

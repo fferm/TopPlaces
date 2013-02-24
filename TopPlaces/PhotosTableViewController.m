@@ -57,6 +57,10 @@
     return [self.photos count];
 }
 
+-(NSArray *)annotations {
+    return self.photos;
+}
+
 
 #pragma mark - Table view delegate
 

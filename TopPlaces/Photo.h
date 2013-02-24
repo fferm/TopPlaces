@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MKAnnotation.h>
 @class Image;
 
-@interface Photo : NSObject
+@interface Photo : NSObject<MKAnnotation>
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *description;
 @property (nonatomic, readonly) NSURL *url;

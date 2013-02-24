@@ -77,5 +77,13 @@ static NSMutableDictionary *images = nil;
     return [self.photoId isEqual:otherPhoto.photoId];
 }
 
+-(CLLocationCoordinate2D)coordinate{
+    CLLocationCoordinate2D ret;
+    ret.latitude = [[self.flickrDict objectForKey:FLICKR_LATITUDE] doubleValue];
+    ret.longitude = [[self.flickrDict objectForKey:FLICKR_LONGITUDE] doubleValue];
+    
+    return ret;
+}
+
 
 @end

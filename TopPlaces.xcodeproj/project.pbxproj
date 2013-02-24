@@ -33,6 +33,7 @@
 		0BFC44EA16D6B835007F170C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFC44E916D6B835007F170C /* MapKit.framework */; };
 		0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC44ED16D6B8C1007F170C /* MapViewController.m */; };
 		0BFC44F516DA9BB4007F170C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFC44F416DA9BB4007F170C /* CoreLocation.framework */; };
+		0BFC44F716DAAD71007F170C /* Notepad.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0BFC44F616DAAD71007F170C /* Notepad.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		0BFC44EC16D6B8C1007F170C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		0BFC44ED16D6B8C1007F170C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		0BFC44F416DA9BB4007F170C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0BFC44F616DAAD71007F170C /* Notepad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notepad.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 		0B3C8A0416B5C95600FB35BC /* TopPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				0BFC44F616DAAD71007F170C /* Notepad.txt */,
 				0B1D187916CAF81F00348D1D /* Controller */,
 				0B1D187216C9292400348D1D /* Storyboards */,
 				0B1D186D16C46AA300348D1D /* Flickr */,
@@ -293,6 +296,7 @@
 				0B3C8A1816B5C95600FB35BC /* iPhone.storyboard in Resources */,
 				0B3C8A1B16B5C95600FB35BC /* iPad.storyboard in Resources */,
 				0B3C8A3716B73CD900FB35BC /* globe.png in Resources */,
+				0BFC44F716DAAD71007F170C /* Notepad.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
