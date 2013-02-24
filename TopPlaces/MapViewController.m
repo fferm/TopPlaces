@@ -17,6 +17,7 @@
 @implementation MapViewController
 @synthesize places = _places;
 @synthesize mapView = _mapView;
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +30,7 @@
 
 -(void)updateMap {
     [self.mapView removeAnnotations:self.mapView.annotations];
-    [self.mapView addAnnotations:self.places];
+    [self.mapView addAnnotations:[self.delegate annotations]];
 
     [self updateCenter];
     
@@ -37,7 +38,7 @@
 }
 
 -(void) updateCenter {
-    if (self.mapView.annotations) {
+    if (self.mapView.annotations && self.mapView.annotations.count > 0) {
         CLLocationDegrees maxLat, minLat, maxLon, minLon;
         
         for (id<MKAnnotation> annotation in self.mapView.annotations) {

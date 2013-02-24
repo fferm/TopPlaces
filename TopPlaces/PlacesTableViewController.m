@@ -103,11 +103,11 @@
         
         PhotosTableViewController *destination = segue.destinationViewController;
         destination.place = place;
-    } else if ([segue.identifier isEqualToString:@"MapSegue"]) {
-        MapViewController *destination = segue.destinationViewController;
-        
-        destination.places = [self.nonSortedPlaces copy];
     }
+}
+
+-(NSArray *)annotations {
+    return [self.nonSortedPlaces copy];
 }
 
 #pragma mark - TopPlacesTableViewControllerDelegate

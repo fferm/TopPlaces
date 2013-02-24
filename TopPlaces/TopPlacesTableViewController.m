@@ -7,6 +7,7 @@
 //
 
 #import "TopPlacesTableViewController.h"
+#import "MapViewController.h"
 
 @interface TopPlacesTableViewController ()
 
@@ -21,7 +22,20 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
+    [self setMapButton];
 }
+
+-(void)setMapButton {
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(mapButtonPressed)];
+    self.navigationItem.leftBarButtonItem = mapButton;
+}
+
+-(void)mapButtonPressed {
+    MapViewController *mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mapViewController"];
+    mapViewController.delegate = self;
+    [self.navigationController pushViewController:mapViewController animated:YES];
+}
+
 
 -(AnimationHelper *)animationHelper {
     if (!_animationHelper) {
