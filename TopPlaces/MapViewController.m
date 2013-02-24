@@ -15,7 +15,6 @@
 @end
 
 @implementation MapViewController
-@synthesize places = _places;
 @synthesize mapView = _mapView;
 @synthesize delegate = _delegate;
 
@@ -81,11 +80,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)setPlaces:(NSArray *)places {
-    _places = places;
-    [self updateMap];
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {

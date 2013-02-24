@@ -15,7 +15,6 @@
 @end
 
 @interface MapViewController : UIViewController<MKMapViewDelegate>
-@property (nonatomic, strong) NSArray *places;
 @property (nonatomic, strong) id<MapViewControllerDelegate> delegate;
 
 @end
