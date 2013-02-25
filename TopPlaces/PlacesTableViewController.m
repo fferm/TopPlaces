@@ -119,7 +119,7 @@
 
 -(NSString *)cellDescriptionFor:(id)selectedObject {
     Place *place = (Place *)selectedObject;
-    return place.location;
+    return place.subtitle;
 }
 
 -(NSString *)cellIdentifier {

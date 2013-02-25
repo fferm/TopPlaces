@@ -19,7 +19,6 @@
 @implementation Place
 @synthesize flickrDict = _flickrDict;
 @synthesize title = _title;
-@synthesize location = _location;
 @synthesize country = _country;
 @synthesize photos = _photos;
 @synthesize subtitle = _subtitle;
@@ -66,7 +65,7 @@
     return [[self dividedContentString] lastObject];
 }
 
--(NSString *)location {
+-(NSString *)subtitle {
     NSMutableArray *desc = [[self dividedContentString] mutableCopy];
     [desc removeObjectAtIndex:0];
         
@@ -81,10 +80,6 @@
     }
         
     return ret;
-}
-
--(NSString *)subtitle {
-    return self.location;
 }
 
 -(NSArray *)getPhotos {

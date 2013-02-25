@@ -11,7 +11,6 @@
 
 @interface Place : NSObject<MKAnnotation>
 @property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) NSString *location;
 @property (nonatomic, readonly) NSString *country;
 @property (nonatomic, readonly) NSString *subtitle;
 
