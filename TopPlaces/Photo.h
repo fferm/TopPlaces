@@ -12,7 +12,8 @@
 
 @interface Photo : NSObject<MKAnnotation>
 @property (nonatomic, readonly, copy) NSString *title;
-@property (nonatomic, readonly) NSString *description;
+@property (nonatomic, readonly, copy) NSString *subtitle;
+
 @property (nonatomic, readonly) NSURL *url;
 @property (nonatomic, readonly) UIImage *image;
 @property (nonatomic, readonly) NSString *photoId;

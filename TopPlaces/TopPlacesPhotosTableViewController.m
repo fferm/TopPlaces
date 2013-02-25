@@ -18,25 +18,12 @@
 
 -(NSString *)cellTitleFor:(id)selectedObject {
     Photo *photo = (Photo *)selectedObject;
-
-    NSString *ret = photo.title;
-    if (!ret || ret.length == 0) {
-        ret = photo.description;
-    }
-    if (!ret || ret.length == 0) {
-        ret = @"Unknown";
-    }
-    
-    return ret;
+    return photo.title;
 }
 
 -(NSString *)cellDescriptionFor:(id)selectedObject {
     Photo *photo = (Photo *)selectedObject;
-    if (photo.title && photo.title.length > 0) {
-        return photo.description;
-    } else {
-        return @"";
-    }
+    return photo.subtitle;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -12,20 +12,45 @@
 static NSMutableDictionary *images = nil;
 
 @interface Photo()
+@property (nonatomic, readonly) NSString *flickrTitle;
+@property (nonatomic, readonly) NSString *flickrDescription;
+
 @end
 @implementation Photo
 @synthesize title = _title;
-@synthesize description = _description;
+@synthesize subtitle = _subtitle;
+
+@synthesize flickrTitle = _flickrTitle;
+@synthesize flickrDescription = _flickrDescription;
 @synthesize flickrDict = _flickrDict;
 @synthesize url = _url;
 @synthesize image = _image;
 @synthesize photoId = _photoId;
 
 -(NSString *)title {
+    NSString *ret = self.flickrTitle;
+    if (!ret || ret.length == 0) {
+        ret = self.flickrDescription;
+    }
+    if (!ret || ret.length == 0) {
+        ret = @"Unknown";
+    }
+    return ret;
+}
+
+-(NSString *)subtitle {
+    if (self.flickrTitle && self.flickrTitle.length > 0) {
+        return self.flickrDescription;
+    } else {
+        return @"";
+    }
+}
+
+-(NSString *)flickrTitle {
     return [self.flickrDict objectForKey:FLICKR_PHOTO_TITLE];
 }
 
--(NSString *)description {
+-(NSString *)flickrDescription {
     return [[self.flickrDict objectForKey:FLICKR_PHOTO_DESCRIPTION] objectForKey:FLICKR_PHOTO_CONTENT];
 }
 
