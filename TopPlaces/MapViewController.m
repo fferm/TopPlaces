@@ -18,15 +18,6 @@
 @synthesize mapView = _mapView;
 @synthesize delegate = _delegate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 -(void)updateMap {
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotations:[self.delegate annotations]];
@@ -36,7 +27,7 @@
     [self.mapView setNeedsDisplay];
 }
 
--(void) updateCenter {
+-(void)updateCenter {
     if (self.mapView.annotations && self.mapView.annotations.count > 0) {
         CLLocationDegrees maxLat, minLat, maxLon, minLon;
         
@@ -90,14 +81,26 @@
     if (!aView) {
         aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MapVC"];
         aView.canShowCallout = YES;
-//        aView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        // could put a rightCalloutAccessoryView here
     }
-    
+
     aView.annotation = annotation;
-//    [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
+
+    aView.leftCalloutAccessoryView = nil;
+    [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
     
     return aView;
 }
+
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    UIImage *calloutImage = [self.delegate calloutImageForAnnotation:view.annotation];
+    
+    if (calloutImage) {
+        view.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        [(UIImageView *)view.leftCalloutAccessoryView setImage:calloutImage];
+    }
+}
+
+
+
 
 @end

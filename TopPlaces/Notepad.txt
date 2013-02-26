@@ -1,3 +1,4 @@
-bilder på annotation view för foton
+annotation-bilder bör laddas i annan tråd (inklusive kontroll att det är rätt annotationView kvar när vi kommer tillbaka)
+
 namn på back button och titel för mapviewcontroller
 navigation från annotation view

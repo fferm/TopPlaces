@@ -26,7 +26,7 @@
     return photo.subtitle;
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ImageSegue"]) {
         ImageViewController *vc = segue.destinationViewController;
         
@@ -36,6 +36,11 @@
         
         [UserDefaultsManager addPhotoIfNotAlreadyPresent:photo];
     }
+}
+
+-(UIImage *)calloutImageForAnnotation:(id<MKAnnotation>)annotation {
+    Photo *photo = annotation;
+    return photo.calloutImage;
 }
 
 @end

@@ -110,6 +110,10 @@
     return [self.nonSortedPlaces copy];
 }
 
+-(UIImage *)calloutImageForAnnotation:(id<MKAnnotation>)annotation {
+    return nil;
+}
+
 #pragma mark - TopPlacesTableViewControllerDelegate
 
 -(NSString *)cellTitleFor:(id)selectedObject {

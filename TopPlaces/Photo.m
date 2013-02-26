@@ -25,6 +25,7 @@ static NSMutableDictionary *images = nil;
 @synthesize flickrDict = _flickrDict;
 @synthesize url = _url;
 @synthesize image = _image;
+@synthesize calloutImage = _calloutImage;
 @synthesize photoId = _photoId;
 
 -(NSString *)title {
@@ -61,8 +62,18 @@ static NSMutableDictionary *images = nil;
     return _image;
 }
 
+-(UIImage *)calloutImage {
+    if (!_calloutImage) { // Har medvetet valt att inte cacha denna bild, då det ändå behöver ändras då inga bilder skall lagras i minnet
+        NSURL *photoUrl = [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatSquare];
+        NSData *data = [NSData dataWithContentsOfURL:photoUrl];
+        _calloutImage = [UIImage imageWithData:data];
+    }
+    return _calloutImage;
+}
+
 -(UIImage *)createUIImage {
-    if (!images) {
+    if (!images) {          // images verkar inte vara en medlemsvariabel utan skapas när denna kod körs första gången.
+                            // Detta behöver ändå ändras då inga bilder skall lagras i minnet, så jag gör ingenting nu
         images = [NSMutableDictionary dictionary];
     }
     

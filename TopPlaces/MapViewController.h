@@ -12,6 +12,7 @@
 @protocol MapViewControllerDelegate <NSObject>
 @optional
 -(NSArray *)annotations;
+-(UIImage *)calloutImageForAnnotation:(id<MKAnnotation>)annotation;
 
 @end
 
