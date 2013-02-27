@@ -87,7 +87,8 @@
 
     aView.leftCalloutAccessoryView = nil;
     [(UIImageView *)aView.leftCalloutAccessoryView setImage:nil];
-    
+
+    aView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     return aView;
 }
 
@@ -103,9 +104,10 @@
             }
         });
     });
+}
 
-    
-    
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    NSLog(@"Callout tapped");
 }
 
 
