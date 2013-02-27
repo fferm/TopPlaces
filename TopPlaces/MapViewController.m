@@ -92,12 +92,20 @@
 }
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    UIImage *calloutImage = [self.delegate calloutImageForAnnotation:view.annotation];
+    dispatch_queue_t downloadQueue = dispatch_queue_create("callout image downloader", NULL);
+    dispatch_async(downloadQueue, ^{
+        UIImage *calloutImage = [self.delegate calloutImageForAnnotation:view.annotation];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (calloutImage) {
+                view.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+                [(UIImageView *)view.leftCalloutAccessoryView setImage:calloutImage];
+            }
+        });
+    });
+
     
-    if (calloutImage) {
-        view.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [(UIImageView *)view.leftCalloutAccessoryView setImage:calloutImage];
-    }
+    
 }
 
 
