@@ -9,6 +9,7 @@
 #import "ImageViewController.h"
 #import "Photo.h"
 #import "AnimationHelper.h"
+#import "UserDefaultsManager.h"
 
 @interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -47,6 +48,8 @@
                                          self.scrollView.contentSize.height);
             [self.scrollView zoomToRect:zoomRect animated:NO];
             [self.animationHelper stopAnimation];
+            
+            [UserDefaultsManager addPhotoIfNotAlreadyPresent:self.photo];
         });
     });
 }

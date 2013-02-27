@@ -1,3 +1,4 @@
 navigation från annotation view
 
 namn på back button och titel för mapviewcontroller
+maxgräns på foton i recent photos (UserDefaultManager?)

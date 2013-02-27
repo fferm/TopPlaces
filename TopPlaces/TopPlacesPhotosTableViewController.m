@@ -34,7 +34,7 @@
         Photo *photo = [self selectedObjectAt:indexPath];
         vc.photo = photo;
         
-        [UserDefaultsManager addPhotoIfNotAlreadyPresent:photo];
+//        [UserDefaultsManager addPhotoIfNotAlreadyPresent:photo];
     }
 }
 
