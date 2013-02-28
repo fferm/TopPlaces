@@ -14,14 +14,12 @@
 @interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
-@property (strong, nonatomic) AnimationHelper *animationHelper;
 @end
 
 @implementation ImageViewController
 @synthesize photo = _photo;
 @synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
-@synthesize animationHelper = _animationHelper;
 
 - (void)setUpImage {
     // Configure scrollView
@@ -29,8 +27,9 @@
     self.scrollView.zoomScale = 1.0;
     self.scrollView.minimumZoomScale = 0.1;
     self.scrollView.maximumZoomScale = 10.0;
-    
-    [self.animationHelper startAnimationOn:self];
+
+    AnimationHelper *ah = [[AnimationHelper alloc] init];
+    [ah startAnimationOn:self];
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
     dispatch_async(downloadQueue, ^{
@@ -47,18 +46,11 @@
                                          self.scrollView.contentSize.width,
                                          self.scrollView.contentSize.height);
             [self.scrollView zoomToRect:zoomRect animated:NO];
-            [self.animationHelper stopAnimation];
+            [ah stopAnimation];
             
             [UserDefaultsManager addPhotoIfNotAlreadyPresent:self.photo];
         });
     });
-}
-
--(AnimationHelper *)animationHelper {
-    if (!_animationHelper) {
-        _animationHelper = [[AnimationHelper alloc] init];
-    }
-    return _animationHelper;
 }
 
 -(void)setUpNavigationBar {

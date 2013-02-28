@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AnimationHelper.h"
 #import "MapViewController.h"
 
 @protocol TopPlacesTableViewControllerDelegate <NSObject>
@@ -24,5 +23,4 @@
 @end
 
 @interface TopPlacesTableViewController : UITableViewController<TopPlacesTableViewControllerDelegate, MapViewControllerDelegate>
-@property (nonatomic, strong) AnimationHelper *animationHelper;
 @end

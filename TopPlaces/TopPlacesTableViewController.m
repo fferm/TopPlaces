@@ -17,7 +17,6 @@
 
 @implementation TopPlacesTableViewController
 @synthesize delegate = _myDelegate;
-@synthesize animationHelper = _animationHelper;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
@@ -34,14 +33,6 @@
     MapViewController *mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mapViewController"];
     mapViewController.delegate = self;
     [self.navigationController pushViewController:mapViewController animated:YES];
-}
-
-
--(AnimationHelper *)animationHelper {
-    if (!_animationHelper) {
-        _animationHelper = [[AnimationHelper alloc] init];
-    }
-    return _animationHelper;
 }
 
 #pragma mark - TopPlacesTableViewControllerDelegate
