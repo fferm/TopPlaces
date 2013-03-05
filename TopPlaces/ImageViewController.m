@@ -8,18 +8,27 @@
 
 #import "ImageViewController.h"
 #import "Photo.h"
-#import "AnimationHelper.h"
+#import "Animator.h"
 #import "UserDefaultsManager.h"
 
 @interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) Animator *animator;
 @end
 
 @implementation ImageViewController
 @synthesize photo = _photo;
 @synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
+@synthesize animator = _animator;
+
+-(Animator *)animator {
+    if (!_animator) {
+        _animator = [Animator createForViewController:self];
+    }
+    return _animator;
+}
 
 - (void)setUpImage {
     // Configure scrollView
@@ -28,8 +37,7 @@
     self.scrollView.minimumZoomScale = 0.1;
     self.scrollView.maximumZoomScale = 10.0;
 
-    AnimationHelper *ah = [[AnimationHelper alloc] init];
-    [ah startAnimationOn:self];
+    [self.animator startAnimation];
     
     dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
     dispatch_async(downloadQueue, ^{
@@ -46,7 +54,7 @@
                                          self.scrollView.contentSize.width,
                                          self.scrollView.contentSize.height);
             [self.scrollView zoomToRect:zoomRect animated:NO];
-            [ah stopAnimation];
+            [self.animator hideAnimation];
             
             [UserDefaultsManager addPhotoIfNotAlreadyPresent:self.photo];
         });

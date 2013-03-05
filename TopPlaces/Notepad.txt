@@ -1,6 +1,5 @@
-Hantering av knappar i toolbar
-
 namn på back button och titel för mapviewcontroller
+namn på back button när den går till en karta
 maxgräns på antal foton i recent photos (UserDefaultManager?)
 Gör modell-klasser i tableviewcontrollers, mycket av det som är olika försvinner?
 

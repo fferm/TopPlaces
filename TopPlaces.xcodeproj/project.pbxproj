@@ -28,7 +28,7 @@
 		0B3C8A3716B73CD900FB35BC /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3C8A3616B73CD900FB35BC /* globe.png */; };
 		0BC34CAA16C06C7300C3420A /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC34CA916C06C7300C3420A /* ImageViewController.m */; };
 		0BC34CB416C319F300C3420A /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC34CB316C319F300C3420A /* Photo.m */; };
-		0BD8646F16D66AF000946EA1 /* AnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD8646E16D66AF000946EA1 /* AnimationHelper.m */; };
+		0BD8646F16D66AF000946EA1 /* Animator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BD8646E16D66AF000946EA1 /* Animator.m */; };
 		0BDF26CF16BB0F0D0042FBA1 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */; };
 		0BFC44EA16D6B835007F170C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFC44E916D6B835007F170C /* MapKit.framework */; };
 		0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC44ED16D6B8C1007F170C /* MapViewController.m */; };
@@ -72,8 +72,8 @@
 		0BC34CA916C06C7300C3420A /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		0BC34CB216C319F300C3420A /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		0BC34CB316C319F300C3420A /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		0BD8646D16D66AF000946EA1 /* AnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationHelper.h; sourceTree = "<group>"; };
-		0BD8646E16D66AF000946EA1 /* AnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationHelper.m; sourceTree = "<group>"; };
+		0BD8646D16D66AF000946EA1 /* Animator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animator.h; sourceTree = "<group>"; };
+		0BD8646E16D66AF000946EA1 /* Animator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animator.m; sourceTree = "<group>"; };
 		0BDF26CD16BB0F0D0042FBA1 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
 		0BDF26CE16BB0F0D0042FBA1 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
 		0BFC44E916D6B835007F170C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -138,8 +138,8 @@
 				0B1D188016CD98EB00348D1D /* TableViewController */,
 				0BC34CA816C06C7300C3420A /* ImageViewController.h */,
 				0BC34CA916C06C7300C3420A /* ImageViewController.m */,
-				0BD8646D16D66AF000946EA1 /* AnimationHelper.h */,
-				0BD8646E16D66AF000946EA1 /* AnimationHelper.m */,
+				0BD8646D16D66AF000946EA1 /* Animator.h */,
+				0BD8646E16D66AF000946EA1 /* Animator.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 				0B1D187516C9450100348D1D /* UserDefaultsManager.m in Sources */,
 				0B1D187C16CAF8E300348D1D /* TopPlacesTableViewController.m in Sources */,
 				0B1D187F16CD986C00348D1D /* TopPlacesPhotosTableViewController.m in Sources */,
-				0BD8646F16D66AF000946EA1 /* AnimationHelper.m in Sources */,
+				0BD8646F16D66AF000946EA1 /* Animator.m in Sources */,
 				0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

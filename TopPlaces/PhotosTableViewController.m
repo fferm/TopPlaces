@@ -7,7 +7,7 @@
 //
 
 #import "PhotosTableViewController.h"
-#import "AnimationHelper.h"
+#import "Animator.h"
 
 @interface PhotosTableViewController ()
 @property (nonatomic, strong) NSArray *photos;
@@ -19,16 +19,15 @@
 
 -(NSArray *)photos {
     if (!_photos) {
-        
-        AnimationHelper *ah = [[AnimationHelper alloc] init];
-        [ah startAnimationOn:self];
+
+        [self.animator startAnimation];
         
         dispatch_queue_t downloadQueue = dispatch_queue_create("photos downloader", NULL);
         dispatch_async(downloadQueue, ^{
             NSArray *photos = [self.place getPhotos];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.photos = photos;
-                [ah stopAnimation];
+                [self.animator hideAnimation];
             });
         });
     }

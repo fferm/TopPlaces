@@ -12,12 +12,18 @@
 @interface TopPlacesTableViewController ()
 
 @property (nonatomic, strong) id<TopPlacesTableViewControllerDelegate> delegate;
-
 @end
 
 @implementation TopPlacesTableViewController
 @synthesize delegate = _myDelegate;
+@synthesize animator = _animator;
 
+-(Animator *)animator {
+    if (!_animator) {
+        _animator = [Animator createForViewController:self];
+    }
+    return _animator;
+}
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
@@ -26,7 +32,11 @@
 
 -(void)setMapButton {
     UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain target:self action:@selector(mapButtonPressed)];
-    self.navigationItem.leftBarButtonItem = mapButton;
+    
+    NSMutableArray *mutItems = [self.navigationItem.rightBarButtonItems mutableCopy];
+    if (!mutItems) mutItems = [NSMutableArray array];
+    [mutItems insertObject:mapButton atIndex:0];
+    self.navigationItem.rightBarButtonItems = [mutItems copy];
 }
 
 -(void)mapButtonPressed {
@@ -34,6 +44,7 @@
     mapViewController.delegate = self;
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
+
 
 #pragma mark - TopPlacesTableViewControllerDelegate
 -(NSString *)cellTitleFor:(id)selectedObject {

@@ -10,7 +10,7 @@
 #import "PhotosTableViewController.h"
 #import "MapViewController.h"
 #import "Place.h"
-#import "AnimationHelper.h"
+#import "Animator.h"
 
 @interface PlacesTableViewController ()
 @property (nonatomic, strong)NSArray *sortedCountries;
@@ -26,15 +26,14 @@
 -(NSArray *)nonSortedPlaces {
     if (!_nonSortedPlaces) {
         
-        AnimationHelper *ah = [[AnimationHelper alloc] init];
-        [ah startAnimationOn:self];
+        [self.animator startAnimation];
         
         dispatch_queue_t downloadQueue = dispatch_queue_create("places downloader", NULL);
         dispatch_async(downloadQueue, ^{
             NSArray *topPlaces = [Place topPlaces];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.nonSortedPlaces = topPlaces;
-                [ah stopAnimation];
+                [self.animator hideAnimation];
             });
         });
     }

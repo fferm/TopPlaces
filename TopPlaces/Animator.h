@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AnimationHelper : NSObject
+@interface Animator : NSObject
 
--(void)startAnimationOn:(UIViewController *)viewController;
--(void)stopAnimation;
++(Animator *)createForViewController:(UIViewController *)vc;
+
+-(void)startAnimation;
+-(void)hideAnimation;
 
 @end
