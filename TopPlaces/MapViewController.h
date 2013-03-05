@@ -13,6 +13,8 @@
 @optional
 -(NSArray *)annotations;
 -(UIImage *)calloutImageForAnnotation:(id<MKAnnotation>)annotation;
+-(NSString *)storyboardIdOfCalloutController;
+-(NSString *)propertyNameToSetModelInNextController;
 
 @end
 

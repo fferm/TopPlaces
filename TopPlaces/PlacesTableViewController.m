@@ -152,5 +152,13 @@
     return [self.sortedCountries objectAtIndex:section];
 }
 
+#pragma mark - MapViewControllerDelegate
+-(NSString *)storyboardIdOfCalloutController{
+    return @"photosViewController";
+}
+
+-(NSString *)propertyNameToSetModelInNextController{
+    return @"place";
+}
 
 @end

@@ -107,7 +107,10 @@
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    NSLog(@"Callout tapped");
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:[self.delegate storyboardIdOfCalloutController]];
+
+    [vc setValue:view.annotation forKey:[self.delegate propertyNameToSetModelInNextController]];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

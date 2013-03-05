@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="H69-rc-Guf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="H69-rc-Guf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -129,7 +129,7 @@
         <!--Photos Table View Controller - Photos-->
         <scene sceneID="0H7-vf-KIV">
             <objects>
-                <tableViewController storyboardIdentifier="PhotosViewController" id="cKM-bs-pR4" customClass="PhotosTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="photosViewController" id="cKM-bs-pR4" customClass="PhotosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wvG-i3-Hq3">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,7 +176,7 @@
         <!--Image View Controller-->
         <scene sceneID="fHS-sc-iVL">
             <objects>
-                <viewController id="NEB-Ac-gak" customClass="ImageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imageViewController" id="NEB-Ac-gak" customClass="ImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Fg-lP-rKo">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -219,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaU-mS-bhx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816" y="-445"/>
+            <point key="canvasLocation" x="701" y="-431"/>
         </scene>
         <!--Navigation Controller - Places-->
         <scene sceneID="65b-pb-p1d">
@@ -301,6 +301,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="y9l-YS-nxG"/>
+        <segue reference="I87-vD-cX5"/>
     </inferredMetricsTieBreakers>
 </document>

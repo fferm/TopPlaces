@@ -1,4 +1,4 @@
-navigation från annotation view
-
 namn på back button och titel för mapviewcontroller
-maxgräns på foton i recent photos (UserDefaultManager?)
+maxgräns på antal foton i recent photos (UserDefaultManager?)
+Gör modell-klasser i tableviewcontrollers, mycket av det som är olika försvinner?
+Hantering av knappar i toolbar

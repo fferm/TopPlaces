@@ -43,4 +43,15 @@
     return photo.calloutImage;
 }
 
+#pragma mark - MapViewControllerDelegate
+-(NSString *)storyboardIdOfCalloutController {
+    return @"imageViewController";
+}
+
+-(NSString *)propertyNameToSetModelInNextController {
+    return @"photo";
+}
+
+
+
 @end

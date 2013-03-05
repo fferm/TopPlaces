@@ -58,7 +58,7 @@
 		0B3C8A1016B5C95600FB35BC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0B3C8A1216B5C95600FB35BC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0B3C8A1416B5C95600FB35BC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		0B3C8A1716B5C95600FB35BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
+		0B3C8A1716B5C95600FB35BC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		0B3C8A1A16B5C95600FB35BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		0B3C8A2416B5C9F500FB35BC /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		0B3C8A2516B5C9F500FB35BC /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
