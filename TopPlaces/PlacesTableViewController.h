@@ -11,6 +11,6 @@
 #import "PlacesModel.h"
 
 
-@interface PlacesTableViewController : TopPlacesTableViewController<PlacesModelEventTarget>
+@interface PlacesTableViewController : TopPlacesTableViewController
 
 @end

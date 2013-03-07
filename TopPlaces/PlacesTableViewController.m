@@ -19,10 +19,10 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setModel];
+    [self initDataSource];
 }
 
--(void)setModel {
+-(void)initDataSource {
     PlacesModel *model = [[PlacesModel alloc] init];
     self.dataSource = model;
     model.eventTarget = self;
@@ -37,19 +37,6 @@
         PhotosTableViewController *destination = segue.destinationViewController;
         destination.place = place;
     }
-}
-
-#pragma mark - PlacesModelEventTarget
--(void)willDownload {
-    [self.animator startAnimation];
-}
-
--(void)didDownload {
-    [self.animator hideAnimation];
-}
-
--(void)needsReload {
-    [self.tableView reloadData];
 }
 
 #pragma mark - MapViewControllerDelegate

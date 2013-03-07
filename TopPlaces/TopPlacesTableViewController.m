@@ -43,6 +43,18 @@
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
+#pragma mark - PlacesModelEventTarget
+-(void)willDownload {
+    [self.animator startAnimation];
+}
+
+-(void)didDownload {
+    [self.animator hideAnimation];
+}
+
+-(void)needsReload {
+    [self.tableView reloadData];
+}
 
 #pragma mark - TopPlacesTableViewControllerDelegate
 -(NSString *)cellTitleFor:(id)selectedObject {

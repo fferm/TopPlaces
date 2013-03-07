@@ -9,12 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TopPlacesTableViewController.h"
 
-@protocol PlacesModelEventTarget <NSObject>
--(void)willDownload;
--(void)didDownload;
--(void)needsReload;
-@end
 
 @interface PlacesModel : NSObject<TopPlacesTableDataSource>
-@property (nonatomic, weak) id<PlacesModelEventTarget> eventTarget;
+@property (nonatomic, weak) id<ModelEventTarget> eventTarget;
 @end

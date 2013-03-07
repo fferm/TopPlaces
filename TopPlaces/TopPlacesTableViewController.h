@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MapViewController.h"
 #import "Animator.h"
+#import "PlacesModelEventTarget.h"
 
 @protocol TopPlacesTableDataSource <NSObject>
 
@@ -24,7 +25,7 @@
 
 @end
 
-@interface TopPlacesTableViewController : UITableViewController<TopPlacesTableDataSource, MapViewControllerDelegate>
+@interface TopPlacesTableViewController : UITableViewController<TopPlacesTableDataSource, MapViewControllerDelegate, ModelEventTarget>
 @property (nonatomic, strong) id<TopPlacesTableDataSource> dataSource;
 @property (nonatomic,strong) Animator* animator;
 @end
