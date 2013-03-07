@@ -11,11 +11,10 @@
 
 @interface TopPlacesTableViewController ()
 
-@property (nonatomic, strong) id<TopPlacesTableViewControllerDelegate> delegate;
 @end
 
 @implementation TopPlacesTableViewController
-@synthesize delegate = _myDelegate;
+@synthesize dataSource = _myDelegate;
 @synthesize animator = _animator;
 
 -(Animator *)animator {
@@ -26,7 +25,6 @@
 }
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.delegate = self;
     [self setMapButton];
 }
 
@@ -79,17 +77,17 @@
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.delegate countOfSections];
+    return [self.dataSource countOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.delegate countForSection:section];
+    return [self.dataSource countForSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id<TopPlacesTableViewControllerDelegate> del = self.delegate;
+    id<TopPlacesTableDataSource> del = self.dataSource;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[del cellIdentifier] forIndexPath:indexPath];
     
@@ -102,7 +100,7 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [self.delegate sectionHeaderTitle:section];
+    return [self.dataSource sectionHeaderTitle:section];
 }
 
 /*#pragma mark - Table view delegate

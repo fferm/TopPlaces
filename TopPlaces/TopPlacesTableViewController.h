@@ -10,19 +10,21 @@
 #import "MapViewController.h"
 #import "Animator.h"
 
-@protocol TopPlacesTableViewControllerDelegate <NSObject>
+@protocol TopPlacesTableDataSource <NSObject>
 
 -(NSString *)cellTitleFor:(id)selectedObject;
 -(NSString *)cellDescriptionFor:(id)selectedObject;
 -(id)selectedObjectAt:(NSIndexPath *)indexPath;
+-(NSArray *)allObjects;
 -(NSString *)cellIdentifier;
--(NSInteger)countForSection:(NSInteger)section;
 
+-(NSInteger)countForSection:(NSInteger)section;
 -(NSInteger)countOfSections;
 -(NSString *)sectionHeaderTitle:(NSInteger)section;
 
 @end
 
-@interface TopPlacesTableViewController : UITableViewController<TopPlacesTableViewControllerDelegate, MapViewControllerDelegate>
+@interface TopPlacesTableViewController : UITableViewController<TopPlacesTableDataSource, MapViewControllerDelegate>
+@property (nonatomic, strong) id<TopPlacesTableDataSource> dataSource;
 @property (nonatomic,strong) Animator* animator;
 @end

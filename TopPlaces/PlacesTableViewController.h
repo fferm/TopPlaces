@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TopPlacesTableViewController.h"
-@interface PlacesTableViewController : TopPlacesTableViewController
+#import "PlacesModel.h"
+
+
+@interface PlacesTableViewController : TopPlacesTableViewController<PlacesModelEventTarget>
 
 @end

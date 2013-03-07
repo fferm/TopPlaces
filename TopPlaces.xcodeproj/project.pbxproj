@@ -34,6 +34,7 @@
 		0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC44ED16D6B8C1007F170C /* MapViewController.m */; };
 		0BFC44F516DA9BB4007F170C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFC44F416DA9BB4007F170C /* CoreLocation.framework */; };
 		0BFC44F716DAAD71007F170C /* Notepad.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0BFC44F616DAAD71007F170C /* Notepad.txt */; };
+		53C6ABD416E95060002F5A90 /* PlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C6ABD316E95060002F5A90 /* PlacesModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		0BFC44ED16D6B8C1007F170C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		0BFC44F416DA9BB4007F170C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0BFC44F616DAAD71007F170C /* Notepad.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Notepad.txt; sourceTree = "<group>"; };
+		53C6ABD216E95060002F5A90 /* PlacesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesModel.h; sourceTree = "<group>"; };
+		53C6ABD316E95060002F5A90 /* PlacesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +115,11 @@
 		0B1D186E16C46AD500348D1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				53C6ABD116E9503A002F5A90 /* Entities */,
 				0B1D187316C9450000348D1D /* UserDefaultsManager.h */,
 				0B1D187416C9450000348D1D /* UserDefaultsManager.m */,
-				0BC34CB216C319F300C3420A /* Photo.h */,
-				0BC34CB316C319F300C3420A /* Photo.m */,
-				0B1D186F16C46AF200348D1D /* Place.h */,
-				0B1D187016C46AF200348D1D /* Place.m */,
+				53C6ABD216E95060002F5A90 /* PlacesModel.h */,
+				53C6ABD316E95060002F5A90 /* PlacesModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -237,6 +239,17 @@
 			name = MapView;
 			sourceTree = "<group>";
 		};
+		53C6ABD116E9503A002F5A90 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0BC34CB216C319F300C3420A /* Photo.h */,
+				0BC34CB316C319F300C3420A /* Photo.m */,
+				0B1D186F16C46AF200348D1D /* Place.h */,
+				0B1D187016C46AF200348D1D /* Place.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -321,6 +334,7 @@
 				0B1D187F16CD986C00348D1D /* TopPlacesPhotosTableViewController.m in Sources */,
 				0BD8646F16D66AF000946EA1 /* Animator.m in Sources */,
 				0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */,
+				53C6ABD416E95060002F5A90 /* PlacesModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
