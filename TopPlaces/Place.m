@@ -18,10 +18,8 @@
 
 @implementation Place
 @synthesize flickrDict = _flickrDict;
-@synthesize title = _title;
 @synthesize country = _country;
 @synthesize photos = _photos;
-@synthesize subtitle = _subtitle;
 
 
 +(Place *)placeWithFlickrDictionary:(NSDictionary *)dict {

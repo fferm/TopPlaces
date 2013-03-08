@@ -10,6 +10,8 @@
 #import "Entity.h"
 
 @implementation EntityModel
+@synthesize eventTarget = _eventTarget;
+
 -(NSString *)cellTitleFor:(id)selectedObject {
     Entity *ent = (Entity *)selectedObject;
     return ent.title;

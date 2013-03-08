@@ -20,7 +20,6 @@
 @synthesize sortedCountries = _sortedCountries;
 @synthesize nonSortedPlaces = _nonSortedPlaces;
 @synthesize placesByCountry = _placesByCountry;
-@synthesize eventTarget = _eventTarget;
 
 #pragma mark initialization
 

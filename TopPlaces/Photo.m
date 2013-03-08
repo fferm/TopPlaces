@@ -17,9 +17,6 @@ static NSMutableDictionary *images = nil;
 
 @end
 @implementation Photo
-@synthesize title = _title;
-@synthesize subtitle = _subtitle;
-
 @synthesize flickrTitle = _flickrTitle;
 @synthesize flickrDescription = _flickrDescription;
 @synthesize flickrDict = _flickrDict;

@@ -9,5 +9,7 @@
 #import "Entity.h"
 
 @implementation Entity
+@synthesize title = _title;
+@synthesize subtitle = _subtitle;
 
 @end
