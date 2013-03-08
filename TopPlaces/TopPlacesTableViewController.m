@@ -55,45 +55,23 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - TopPlacesTableViewControllerDelegate
--(NSString *)cellTitleFor:(id)selectedObject {
-    return nil;
-}
-
--(NSString *)cellDescriptionFor:(id)selectedObject {
-    return nil;
-}
-
--(id)selectedObjectAt:(NSIndexPath *)indexPath; {
-    return nil;
-}
-
--(NSString *)cellIdentifier {
-    return nil;
-}
-
--(NSInteger)countForSection:(NSInteger)section {
-    return 0;
-}
-
--(NSInteger)countOfSections {
-    return 1;
-}
-
--(NSString *)sectionHeaderTitle:(NSInteger)section {
-    return nil;
-}
-
-
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.dataSource countOfSections];
+    if ([self.dataSource respondsToSelector:@selector(countOfSections)]) {
+        return [self.dataSource countOfSections];
+    } else {
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.dataSource countForSection:section];
+    if ([self.dataSource respondsToSelector:@selector(countForSection:)]) {
+        return [self.dataSource countForSection:section];
+    } else {
+        return [self.dataSource count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -111,7 +89,11 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [self.dataSource sectionHeaderTitle:section];
+    if ([self.dataSource respondsToSelector:@selector(sectionHeaderTitle:)]) {
+        return [self.dataSource sectionHeaderTitle:section];
+    } else {
+        return nil;
+    }
 }
 
 /*#pragma mark - Table view delegate

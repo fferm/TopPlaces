@@ -7,9 +7,7 @@
 //
 
 #import "TopPlacesPhotosTableViewController.h"
-#import "Photo.h"
 #import "ImageViewController.h"
-#import "UserDefaultsManager.h"
 
 @interface TopPlacesPhotosTableViewController()
 @end

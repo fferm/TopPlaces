@@ -8,12 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Place.h"
-#import "TopPlacesTableViewController.h"
+#import "EntityModel.h"
 
-@interface PhotosModel : NSObject<TopPlacesTableDataSource>
+@interface PhotosModel : EntityModel
 @property (nonatomic, strong) Place *place;
-@property (nonatomic, strong) NSArray *photos;
-@property (nonatomic, weak) id<ModelEventTarget> eventTarget;
 
 +(PhotosModel *)modelForPlace:(Place *)place;
 

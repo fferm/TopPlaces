@@ -107,20 +107,6 @@
 
 
 #pragma mark TableModel
--(NSString *)cellTitleFor:(id)selectedObject {
-    Place *place = (Place *)selectedObject;
-    return place.title;
-}
-
--(NSString *)cellDescriptionFor:(id)selectedObject {
-    Place *place = (Place *)selectedObject;
-    return place.subtitle;
-}
-
--(NSString *)cellIdentifier {
-    return @"PlaceCell";
-}
-
 -(id)selectedObjectAt:(NSIndexPath *)indexPath {
     NSString *country = [self.sortedCountries objectAtIndex:indexPath.section];
     NSArray *placesInCountry = [self.placesByCountry objectForKey:country];

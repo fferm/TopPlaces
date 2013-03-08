@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TopPlacesTableViewController.h"
+#import "EntityModel.h"
 
-
-@interface PlacesModel : NSObject<TopPlacesTableDataSource>
-@property (nonatomic, weak) id<ModelEventTarget> eventTarget;
+@interface PlacesModel : EntityModel
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "PhotosTableViewController.h"
-
 @interface PhotosTableViewController ()
 @end
 

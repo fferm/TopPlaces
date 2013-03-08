@@ -12,13 +12,15 @@
 #import "ModelEventTarget.h"
 
 @protocol TopPlacesTableDataSource <NSObject>
-
+@optional
 -(NSString *)cellTitleFor:(id)selectedObject;
 -(NSString *)cellDescriptionFor:(id)selectedObject;
 -(id)selectedObjectAt:(NSIndexPath *)indexPath;
 -(NSArray *)allObjects;
 
+-(NSInteger)count;
 -(NSInteger)countForSection:(NSInteger)section;
+
 -(NSInteger)countOfSections;
 -(NSString *)sectionHeaderTitle:(NSInteger)section;
 @end

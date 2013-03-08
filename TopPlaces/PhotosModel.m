@@ -9,6 +9,11 @@
 #import "PhotosModel.h"
 #import "Photo.h"
 
+@interface PhotosModel()
+@property (nonatomic, strong) NSArray *photos;
+
+@end
+
 @implementation PhotosModel
 @synthesize place = _place;
 @synthesize photos = _photos;
@@ -50,35 +55,16 @@
 }
 
 #pragma mark - TopPlacesTableViewControllerDelegate
-
--(NSString *)cellTitleFor:(id)selectedObject {
-    Photo *photo = (Photo *)selectedObject;
-    return photo.title;
-}
-
--(NSString *)cellDescriptionFor:(id)selectedObject {
-    Photo *photo = (Photo *)selectedObject;
-    return photo.subtitle;
-}
-
 -(id)selectedObjectAt:(NSIndexPath *)indexPath {
     return [self.photos objectAtIndex:indexPath.row];
-}
-
--(NSInteger)countForSection:(NSInteger)section {
-    return [self.photos count];
 }
 
 -(NSArray *)allObjects {
     return self.photos;
 }
 
--(NSInteger)countOfSections{
-    return 1;
-}
-
--(NSString *)sectionHeaderTitle:(NSInteger)section {
-    return nil;
+-(NSInteger)count {
+    return [self.photos count];
 }
 
 

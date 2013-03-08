@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "Entity.h"
 
-@interface Place : NSObject<MKAnnotation>
-@property (nonatomic, readonly) NSString *title;
+@interface Place : Entity
 @property (nonatomic, readonly) NSString *country;
-@property (nonatomic, readonly) NSString *subtitle;
 
 -(NSArray *)getPhotos; // of Photo objects
 
