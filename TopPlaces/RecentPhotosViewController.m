@@ -36,10 +36,6 @@
 
 #pragma mark - TopPlacesTableViewControllerDelegate
 
--(NSString *)cellIdentifier {
-    return @"RecentPhoto";
-}
-
 -(id)selectedObjectAt:(NSIndexPath *)indexPath {
     return [UserDefaultsManager photoAtIndex:indexPath.row];
 }

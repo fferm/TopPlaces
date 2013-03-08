@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MapViewController.h"
 #import "Animator.h"
-#import "PlacesModelEventTarget.h"
+#import "ModelEventTarget.h"
 
 @protocol TopPlacesTableDataSource <NSObject>
 
@@ -17,15 +17,13 @@
 -(NSString *)cellDescriptionFor:(id)selectedObject;
 -(id)selectedObjectAt:(NSIndexPath *)indexPath;
 -(NSArray *)allObjects;
--(NSString *)cellIdentifier;
 
 -(NSInteger)countForSection:(NSInteger)section;
 -(NSInteger)countOfSections;
 -(NSString *)sectionHeaderTitle:(NSInteger)section;
-
 @end
 
-@interface TopPlacesTableViewController : UITableViewController<TopPlacesTableDataSource, MapViewControllerDelegate, ModelEventTarget>
+@interface TopPlacesTableViewController : UITableViewController<MapViewControllerDelegate, ModelEventTarget>
 @property (nonatomic, strong) id<TopPlacesTableDataSource> dataSource;
 @property (nonatomic,strong) Animator* animator;
 @end

@@ -10,11 +10,10 @@
 #import "MapViewController.h"
 
 @interface TopPlacesTableViewController ()
-
 @end
 
 @implementation TopPlacesTableViewController
-@synthesize dataSource = _myDelegate;
+@synthesize dataSource = _myDataSource;
 @synthesize animator = _animator;
 
 -(Animator *)animator {
@@ -99,14 +98,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id<TopPlacesTableDataSource> del = self.dataSource;
+    id<TopPlacesTableDataSource> ds = self.dataSource;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[del cellIdentifier] forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    id selectedObject = [del selectedObjectAt:indexPath];
-    cell.textLabel.text =  [del cellTitleFor:selectedObject];
-    cell.detailTextLabel.text = [del cellDescriptionFor:selectedObject];
+    id selectedObject = [ds selectedObjectAt:indexPath];
+    cell.textLabel.text =  [ds cellTitleFor:selectedObject];
+    cell.detailTextLabel.text = [ds cellDescriptionFor:selectedObject];
     
     return cell;
 }

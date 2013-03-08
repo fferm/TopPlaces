@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Place.h"
+#import "TopPlacesTableViewController.h"
 
-@interface PhotosModel : NSObject
+@interface PhotosModel : NSObject<TopPlacesTableDataSource>
+@property (nonatomic, strong) Place *place;
+@property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, weak) id<ModelEventTarget> eventTarget;
+
++(PhotosModel *)modelForPlace:(Place *)place;
 
 @end

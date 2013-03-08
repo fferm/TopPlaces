@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Photo.h"
+
 @interface UserDefaultsManager : NSObject
 
 +(void)addPhotoIfNotAlreadyPresent:(Photo *)photo;

@@ -10,6 +10,7 @@
 #import "PhotosTableViewController.h"
 #import "MapViewController.h"
 #import "Place.h"
+#import "PhotosModel.h"
 
 @interface PlacesTableViewController ()
 @end
@@ -18,7 +19,6 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    
     [self initDataSource];
 }
 
@@ -30,12 +30,14 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"PhotosSegue"]) {
+    if ([segue.identifier isEqualToString:@"segue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Place *place = [self selectedObjectAt:indexPath];
+        Place *place = [self.dataSource selectedObjectAt:indexPath];
         
         PhotosTableViewController *destination = segue.destinationViewController;
-        destination.place = place;
+        
+        destination.dataSource = [PhotosModel modelForPlace:place];
+        destination.title = [NSString stringWithFormat:@"Photos at %@", place.title];
     }
 }
 

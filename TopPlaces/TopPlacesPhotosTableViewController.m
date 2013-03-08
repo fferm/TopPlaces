@@ -16,25 +16,13 @@
 
 @implementation TopPlacesPhotosTableViewController
 
--(NSString *)cellTitleFor:(id)selectedObject {
-    Photo *photo = (Photo *)selectedObject;
-    return photo.title;
-}
-
--(NSString *)cellDescriptionFor:(id)selectedObject {
-    Photo *photo = (Photo *)selectedObject;
-    return photo.subtitle;
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ImageSegue"]) {
+    if ([segue.identifier isEqualToString:@"segue"]) {
         ImageViewController *vc = segue.destinationViewController;
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Photo *photo = [self selectedObjectAt:indexPath];
+        Photo *photo = [self.dataSource selectedObjectAt:indexPath];
         vc.photo = photo;
-        
-//        [UserDefaultsManager addPhotoIfNotAlreadyPresent:photo];
     }
 }
 
@@ -44,6 +32,9 @@
 }
 
 #pragma mark - MapViewControllerDelegate
+-(NSArray *)annotations{
+    return [self.dataSource allObjects];
+}
 -(NSString *)storyboardIdOfCalloutController {
     return @"imageViewController";
 }
