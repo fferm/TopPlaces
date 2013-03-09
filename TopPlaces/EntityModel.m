@@ -12,15 +12,5 @@
 @implementation EntityModel
 @synthesize eventTarget = _eventTarget;
 
--(NSString *)cellTitleFor:(id)selectedObject {
-    Entity *ent = (Entity *)selectedObject;
-    return ent.title;
-}
-
--(NSString *)cellDescriptionFor:(id)selectedObject {
-    Entity *ent = (Entity *)selectedObject;
-    return ent.subtitle;
-}
-
 
 @end

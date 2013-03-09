@@ -8,6 +8,7 @@
 
 #import "TopPlacesTableViewController.h"
 #import "MapViewController.h"
+#import "Entity.h"
 
 @interface TopPlacesTableViewController ()
 @end
@@ -81,9 +82,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    id selectedObject = [ds selectedObjectAt:indexPath];
-    cell.textLabel.text =  [ds cellTitleFor:selectedObject];
-    cell.detailTextLabel.text = [ds cellDescriptionFor:selectedObject];
+    Entity *selectedObject = [ds selectedObjectAt:indexPath];
+    cell.textLabel.text =  selectedObject.title;
+    cell.detailTextLabel.text = selectedObject.subtitle;
     
     return cell;
 }

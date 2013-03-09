@@ -13,8 +13,6 @@
 
 @protocol TopPlacesTableDataSource <NSObject>
 @optional
--(NSString *)cellTitleFor:(id)selectedObject;
--(NSString *)cellDescriptionFor:(id)selectedObject;
 -(id)selectedObjectAt:(NSIndexPath *)indexPath;
 -(NSArray *)allObjects;
 
