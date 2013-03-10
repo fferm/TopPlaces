@@ -36,9 +36,4 @@
     [model clear];
 }
 
--(NSArray *)annotations {
-    return [self.dataSource allObjects];
-}
-
-
 @end
