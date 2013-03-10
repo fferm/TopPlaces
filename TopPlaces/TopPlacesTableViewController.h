@@ -10,10 +10,11 @@
 #import "MapViewController.h"
 #import "Animator.h"
 #import "ModelEventTarget.h"
+#import "Entity.h"
 
 @protocol TopPlacesTableDataSource <NSObject>
 @optional
--(id)selectedObjectAt:(NSIndexPath *)indexPath;
+-(Entity *)selectedObjectAt:(NSIndexPath *)indexPath;
 -(NSArray *)allObjects;
 
 -(NSInteger)count;

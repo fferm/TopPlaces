@@ -7,7 +7,7 @@
 //
 
 #import "RecentPhotosViewController.h"
-#import "UserDefaultsManager.h"
+#import "RecentPhotosModel.h"
 
 @interface RecentPhotosViewController ()
 
@@ -15,33 +15,29 @@
 
 @implementation RecentPhotosViewController
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    [self initDataSource];
+}
+
+-(void)initDataSource {
+    RecentPhotosModel *model = [[RecentPhotosModel alloc] init];
+    self.dataSource = model;
+    model.eventTarget = self;
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
 
 - (IBAction)clearPressed:(UIBarButtonItem *)sender {
-    [UserDefaultsManager clear];
-    [self.tableView reloadData];
+    RecentPhotosModel *model = self.dataSource;
+    [model clear];
 }
 
 -(NSArray *)annotations {
-    NSMutableArray *annotations = [NSMutableArray array];
-
-    for (int i = 0; i < [UserDefaultsManager count]; i++) {
-        [annotations addObject:[UserDefaultsManager photoAtIndex:i]];
-    }
-    return [annotations copy];
-}
-
-#pragma mark - TopPlacesTableViewControllerDelegate
-
--(id)selectedObjectAt:(NSIndexPath *)indexPath {
-    return [UserDefaultsManager photoAtIndex:indexPath.row];
-}
-
--(NSInteger)countForSection:(NSInteger)section {
-    return [UserDefaultsManager count];
+    return [self.dataSource allObjects];
 }
 
 

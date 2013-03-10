@@ -13,7 +13,7 @@
 
 +(void)addPhotoIfNotAlreadyPresent:(Photo *)photo;
 +(Photo *)photoAtIndex:(NSInteger)index;
-+(NSInteger)count;
 +(void)clear;
-
++(NSArray *)savedFlickrPhotos;
++(NSInteger)count;
 @end
