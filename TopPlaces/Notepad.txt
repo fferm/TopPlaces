@@ -1,6 +1,3 @@
-Gör modell-klasser i tableviewcontrollers, mycket av det som är olika försvinner?
-
-
 namn på back button och titel för mapviewcontroller
 namn på back button när den går till en karta
 maxgräns på antal foton i recent photos (UserDefaultManager?)

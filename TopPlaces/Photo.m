@@ -8,22 +8,20 @@
 
 #import "Photo.h"
 #import "FlickrFetcher.h"
-
-static NSMutableDictionary *images = nil;
+#import "PhotoImageStorageManager.h"
 
 @interface Photo()
 @property (nonatomic, readonly) NSString *flickrTitle;
 @property (nonatomic, readonly) NSString *flickrDescription;
+@property (nonatomic, readonly) PhotoImageStorageManager *imageStorage;
 
 @end
 @implementation Photo
 @synthesize flickrTitle = _flickrTitle;
 @synthesize flickrDescription = _flickrDescription;
 @synthesize flickrDict = _flickrDict;
-@synthesize url = _url;
-@synthesize image = _image;
-@synthesize calloutImage = _calloutImage;
 @synthesize photoId = _photoId;
+@synthesize imageStorage = _imageStorage;
 
 -(NSString *)title {
     NSString *ret = self.flickrTitle;
@@ -44,6 +42,13 @@ static NSMutableDictionary *images = nil;
     }
 }
 
+-(PhotoImageStorageManager *)imageStorage{
+    if (!_imageStorage) {
+        _imageStorage = [[PhotoImageStorageManager alloc] init];
+    }
+    return _imageStorage;
+}
+
 -(NSString *)flickrTitle {
     return [self.flickrDict objectForKey:FLICKR_PHOTO_TITLE];
 }
@@ -53,43 +58,19 @@ static NSMutableDictionary *images = nil;
 }
 
 -(UIImage *)image {
-    if (!_image) {
-        _image = [self createUIImage];
-    }
-    return _image;
+    return [self.imageStorage imageForPhoto:self];
 }
 
 -(UIImage *)calloutImage {
-    if (!_calloutImage) { // Har medvetet valt att inte cacha denna bild, då det ändå behöver ändras då inga bilder skall lagras i minnet
-        NSURL *photoUrl = [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatSquare];
-        NSData *data = [NSData dataWithContentsOfURL:photoUrl];
-        _calloutImage = [UIImage imageWithData:data];
-    }
-    return _calloutImage;
-}
-
--(UIImage *)createUIImage {
-    if (!images) {          // images verkar inte vara en medlemsvariabel utan skapas när denna kod körs första gången.
-                            // Detta behöver ändå ändras då inga bilder skall lagras i minnet, så jag gör ingenting nu
-        images = [NSMutableDictionary dictionary];
-    }
-    
-    UIImage *ret = [images objectForKey:self.photoId];
-
-    if (!ret) {
-        NSData *data = [NSData dataWithContentsOfURL:self.url];
-        ret = [UIImage imageWithData:data];
-
-        if (ret) {
-            [images setObject:ret forKey:self.photoId];
-        }
-    }
-
-    return ret;
+    return [self.imageStorage calloutForPhoto:self];
 }
 
 -(NSURL *)url {
     return [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatLarge];
+}
+
+-(NSURL *)calloutUrl{
+    return [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatSquare];
 }
 
 -(NSString *)photoId{

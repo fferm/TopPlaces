@@ -15,6 +15,7 @@
 @property (nonatomic, readonly) NSURL *url;
 @property (nonatomic, readonly) UIImage *image;
 
+@property (nonatomic, readonly) NSURL *calloutUrl;
 @property (nonatomic, readonly) UIImage *calloutImage;
 
 @property (nonatomic, readonly) NSString *photoId;
