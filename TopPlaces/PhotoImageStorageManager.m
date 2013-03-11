@@ -17,25 +17,30 @@
 }
 
 -(UIImage *)imageForPhoto:(Photo *)photo{
+    return [self uiImageForPhoto:photo withFileExtension:@"full"];
+}
+
+-(UIImage *)calloutForPhoto:(Photo *)photo{
+    return [self uiImageForPhoto:photo withFileExtension:@"callout"];
+}
+
+-(UIImage *)uiImageForPhoto:(Photo *)photo withFileExtension:(NSString *)extension{
+    NSString *path = [self pathForPhoto:photo withFileExtension:extension];
+    
     // Check if file already exists
-    if ([self.fileManager fileExistsAtPath:[self pathForPhoto:photo]]) {
+    if ([self.fileManager fileExistsAtPath:path]) {
         // if it does, read and return it
         NSLog(@"Exists");
     } else {
         // if it doesn't: download, possibly flush and save
         NSLog(@"Not exists");
     }
-
     
-    NSLog(@"photoPath: %@", [self pathForPhoto:photo]);
-    NSLog(@"calloutPath: %@", [self pathForCallout:photo]);
+    
+    NSLog(@"photoPath: %@", path);
     
     return nil;
-}
-
--(UIImage *)calloutForPhoto:(Photo *)photo{
-    NSLog(@"Callout URL: %@", photo.calloutUrl);
-    return nil;
+    
 }
 
 -(NSString *)dirPath{
@@ -43,13 +48,10 @@
 }
 
 #define IMAGE_CACHE_DIR @"imageCache"
--(NSString *)pathForPhoto:(Photo *)photo{
-    return [[[[self dirPath] stringByAppendingPathComponent:IMAGE_CACHE_DIR] stringByAppendingPathComponent:photo.photoId] stringByAppendingPathExtension:@"full"];
+-(NSString *)pathForPhoto:(Photo *)photo withFileExtension:(NSString *)extension {
+    return [[[[self dirPath] stringByAppendingPathComponent:IMAGE_CACHE_DIR] stringByAppendingPathComponent:photo.photoId] stringByAppendingPathExtension:extension];
 }
 
--(NSString *)pathForCallout:(Photo *)photo{
-    return [[[[self dirPath] stringByAppendingPathComponent:IMAGE_CACHE_DIR] stringByAppendingPathComponent:photo.photoId] stringByAppendingPathExtension:@"callout"];
-}
 
 -(NSData *)downloadFromUrl:(NSURL *)url {
     return [NSData dataWithContentsOfURL:url];
