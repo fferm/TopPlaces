@@ -18,12 +18,12 @@
 
 -(UIImage *)imageForPhoto:(Photo *)photo{
     // Check if file already exists
-    if ([self photoAlreadyExists:photo]) {
+    if ([self.fileManager fileExistsAtPath:[self pathForPhoto:photo]]) {
         // if it does, read and return it
-        
+        NSLog(@"Exists");
     } else {
         // if it doesn't: download, possibly flush and save
-        
+        NSLog(@"Not exists");
     }
 
     
@@ -38,21 +38,17 @@
     return nil;
 }
 
--(BOOL)photoAlreadyExists:(Photo *)photo{
-    
-    return NO;
-}
-
 -(NSString *)dirPath{
     return [[self.fileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask].lastObject path];
 }
 
+#define IMAGE_CACHE_DIR @"imageCache"
 -(NSString *)pathForPhoto:(Photo *)photo{
-    return [[[self dirPath] stringByAppendingPathComponent:photo.photoId] stringByAppendingPathExtension:@"full"];
+    return [[[[self dirPath] stringByAppendingPathComponent:IMAGE_CACHE_DIR] stringByAppendingPathComponent:photo.photoId] stringByAppendingPathExtension:@"full"];
 }
 
 -(NSString *)pathForCallout:(Photo *)photo{
-    return [[[self dirPath] stringByAppendingPathComponent:photo.photoId] stringByAppendingPathExtension:@"callout"];
+    return [[[[self dirPath] stringByAppendingPathComponent:IMAGE_CACHE_DIR] stringByAppendingPathComponent:photo.photoId] stringByAppendingPathExtension:@"callout"];
 }
 
 -(NSData *)downloadFromUrl:(NSURL *)url {
