@@ -32,7 +32,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Place *place = [self.dataSource selectedObjectAt:indexPath];
+        Place *place = (Place *)[self.dataSource selectedObjectAt:indexPath];
         
         PhotosTableViewController *destination = segue.destinationViewController;
         

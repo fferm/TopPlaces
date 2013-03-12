@@ -20,6 +20,9 @@
 @synthesize flickrDict = _flickrDict;
 @synthesize country = _country;
 @synthesize photos = _photos;
+@synthesize title = _title;
+@synthesize subtitle = _subtitle;
+
 
 
 +(Place *)placeWithFlickrDictionary:(NSDictionary *)dict {

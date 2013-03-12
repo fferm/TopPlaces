@@ -10,7 +10,5 @@
 #import <MapKit/MKAnnotation.h>
 
 @interface Entity : NSObject<MKAnnotation>
-@property (nonatomic, readonly, copy) NSString *title;
-@property (nonatomic, readonly, copy) NSString *subtitle;
 
 @end

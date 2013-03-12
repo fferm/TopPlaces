@@ -22,6 +22,9 @@
 @synthesize flickrDict = _flickrDict;
 @synthesize photoId = _photoId;
 @synthesize imageStorage = _imageStorage;
+@synthesize title = _title;
+@synthesize subtitle = _subtitle;
+
 
 -(NSString *)title {
     NSString *ret = self.flickrTitle;

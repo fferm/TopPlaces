@@ -19,7 +19,7 @@
         ImageViewController *vc = segue.destinationViewController;
         
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Photo *photo = [self.dataSource selectedObjectAt:indexPath];
+        Photo *photo = (Photo *)[self.dataSource selectedObjectAt:indexPath];
         vc.photo = photo;
     }
 }
