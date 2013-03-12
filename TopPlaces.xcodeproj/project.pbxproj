@@ -36,6 +36,7 @@
 		0BFC44F716DAAD71007F170C /* Notepad.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0BFC44F616DAAD71007F170C /* Notepad.txt */; };
 		5300088916EE94AD00C0CB04 /* PhotoImageStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5300088816EE94AD00C0CB04 /* PhotoImageStorageManager.m */; };
 		532C15E716ED3DEC006A976F /* RecentPhotosModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 532C15E616ED3DEC006A976F /* RecentPhotosModel.m */; };
+		536C382A16EF0905006C6473 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 536C382916EF0905006C6473 /* .gitignore */; };
 		53A1A91016EAADDA00466A05 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1A90F16EAADDA00466A05 /* Entity.m */; };
 		53A1A91316EAAEB300466A05 /* EntityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1A91216EAAEB300466A05 /* EntityModel.m */; };
 		53C6ABD416E95060002F5A90 /* PlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C6ABD316E95060002F5A90 /* PlacesModel.m */; };
@@ -91,6 +92,7 @@
 		5300088816EE94AD00C0CB04 /* PhotoImageStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoImageStorageManager.m; sourceTree = "<group>"; };
 		532C15E516ED3DEC006A976F /* RecentPhotosModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosModel.h; sourceTree = "<group>"; };
 		532C15E616ED3DEC006A976F /* RecentPhotosModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosModel.m; sourceTree = "<group>"; };
+		536C382916EF0905006C6473 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		53A1A90E16EAADDA00466A05 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		53A1A90F16EAADDA00466A05 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		53A1A91116EAAEB300466A05 /* EntityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityModel.h; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				0B1D186D16C46AA300348D1D /* Flickr */,
 				0B1D186E16C46AD500348D1D /* Model */,
 				0B3C8A0516B5C95600FB35BC /* Supporting Files */,
+				536C382916EF0905006C6473 /* .gitignore */,
 			);
 			path = TopPlaces;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				0B3C8A1B16B5C95600FB35BC /* iPad.storyboard in Resources */,
 				0B3C8A3716B73CD900FB35BC /* globe.png in Resources */,
 				0BFC44F716DAAD71007F170C /* Notepad.txt in Resources */,
+				536C382A16EF0905006C6473 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
