@@ -12,20 +12,26 @@
 @end
 @implementation PhotoImageStorageManager
 
+#define IMAGE_CACHE_DIR @"imageCache"
+#define IMAGE_EXTENSION @"full"
+#define CALLOUT_EXTENSION @"callout"
+
 -(NSFileManager *)fileManager{
     return [[NSFileManager alloc] init];
 }
 
 -(UIImage *)imageForPhoto:(Photo *)photo{
-    return [self uiImageForPhoto:photo withFileExtension:@"full"];
+    return [self uiImageForPhoto:photo imageYesCalloutNo:YES];
 }
 
 -(UIImage *)calloutForPhoto:(Photo *)photo{
-    return [self uiImageForPhoto:photo withFileExtension:@"callout"];
+    return [self uiImageForPhoto:photo imageYesCalloutNo:NO];
 }
 
--(UIImage *)uiImageForPhoto:(Photo *)photo withFileExtension:(NSString *)extension{
-    NSString *path = [self pathForPhoto:photo withFileExtension:extension];
+-(UIImage *)uiImageForPhoto:(Photo *)photo imageYesCalloutNo:(BOOL)imageYesCalloutNo{
+    NSString *path = [self pathForPhoto:photo imageYesCalloutNo:imageYesCalloutNo];
+    
+    UIImage *ret;
     
     // Check if file already exists
     if ([self.fileManager fileExistsAtPath:path]) {
@@ -33,57 +39,29 @@
         NSLog(@"Exists");
     } else {
         // if it doesn't: download, possibly flush and save
-        NSLog(@"Not exists");
+        NSData *data = [self downloadImage:photo imageYesCalloutNo:imageYesCalloutNo];
+        ret = [UIImage imageWithData:data];
+        
+        
+        // TODO: flush and save
     }
     
-    
-    NSLog(@"photoPath: %@", path);
-    
-    return nil;
-    
+    return ret;
 }
 
 -(NSString *)dirPath{
     return [[self.fileManager URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask].lastObject path];
 }
 
-#define IMAGE_CACHE_DIR @"imageCache"
--(NSString *)pathForPhoto:(Photo *)photo withFileExtension:(NSString *)extension {
+-(NSString *)pathForPhoto:(Photo *)photo imageYesCalloutNo:(BOOL)imageYesCalloutNo {
+    NSString *extension = imageYesCalloutNo ? IMAGE_EXTENSION : CALLOUT_EXTENSION;
     return [[[[self dirPath] stringByAppendingPathComponent:IMAGE_CACHE_DIR] stringByAppendingPathComponent:photo.photoId] stringByAppendingPathExtension:extension];
 }
 
 
--(NSData *)downloadFromUrl:(NSURL *)url {
+-(NSData *)downloadImage:(Photo *)photo imageYesCalloutNo:(BOOL)imageYesCalloutNo {
+    NSURL *url = imageYesCalloutNo ? photo.url : photo.calloutUrl;
     return [NSData dataWithContentsOfURL:url];
 }
-
-
-/*if (!_calloutImage) { // Har medvetet valt att inte cacha denna bild, då det ändå behöver ändras då inga bilder skall lagras i minnet
-    NSURL *photoUrl = [FlickrFetcher urlForPhoto:self.flickrDict format:FlickrPhotoFormatSquare];
-    NSData *data = [NSData dataWithContentsOfURL:photoUrl];
-    _calloutImage = [UIImage imageWithData:data];
-}
-return _calloutImage;
-}
-
--(UIImage *)createUIImage {
-    if (!images) {          // images verkar inte vara en medlemsvariabel utan skapas när denna kod körs första gången.
-        // Detta behöver ändå ändras då inga bilder skall lagras i minnet, så jag gör ingenting nu
-        images = [NSMutableDictionary dictionary];
-    }
-    
-    UIImage *ret = [images objectForKey:self.photoId];
-    
-    if (!ret) {
-        NSData *data = [NSData dataWithContentsOfURL:self.url];
-        ret = [UIImage imageWithData:data];
-        
-        if (ret) {
-            [images setObject:ret forKey:self.photoId];
-        }
-    }
-    
-    return ret;
-}*/
 
 @end
