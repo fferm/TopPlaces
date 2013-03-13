@@ -42,8 +42,9 @@
         NSData *data = [self downloadImage:photo imageYesCalloutNo:imageYesCalloutNo];
         ret = [UIImage imageWithData:data];
         
-        
-        // TODO: flush and save
+        NSLog([self pathForPhoto:photo imageYesCalloutNo:imageYesCalloutNo]);
+        [data writeToFile:[self pathForPhoto:photo imageYesCalloutNo:imageYesCalloutNo] atomically:YES];
+        // TODO: flush 
     }
     
     return ret;
