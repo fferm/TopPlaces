@@ -27,4 +27,7 @@
 @interface TopPlacesTableViewController : UITableViewController<MapViewControllerDelegate, ModelEventTarget>
 @property (nonatomic, strong) id<TopPlacesTableDataSource> dataSource;
 @property (nonatomic,strong) Animator* animator;
+
+-(Entity *)entityFromSender:(id)sender;
+
 @end

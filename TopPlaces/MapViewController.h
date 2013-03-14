@@ -13,9 +13,9 @@
 @optional
 -(NSArray *)annotations;
 -(UIImage *)calloutImageForAnnotation:(id<MKAnnotation>)annotation;
--(NSString *)storyboardIdOfCalloutController;
--(NSString *)propertyNameToSetModelInNextController;
 
+-(UIViewController *)viewControllerWithSegue;
+-(NSString *)segueId;
 @end
 
 @interface MapViewController : UIViewController<MKMapViewDelegate>

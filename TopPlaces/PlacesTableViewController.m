@@ -31,8 +31,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segue"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Place *place = (Place *)[self.dataSource selectedObjectAt:indexPath];
+        Place *place = (Place *)[self entityFromSender:sender];
         
         PhotosTableViewController *destination = segue.destinationViewController;
         
@@ -42,20 +41,8 @@
 }
 
 #pragma mark - MapViewControllerDelegate
--(NSArray *)annotations {
-    return [self.dataSource allObjects];
-}
-
 -(UIImage *)calloutImageForAnnotation:(id<MKAnnotation>)annotation {
     return nil;
-}
-
--(NSString *)storyboardIdOfCalloutController{
-    return @"photosViewController";
-}
-
--(NSString *)propertyNameToSetModelInNextController{
-    return @"place";
 }
 
 @end

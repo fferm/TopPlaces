@@ -43,6 +43,19 @@
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
+-(Entity *)entityFromSender:(id)sender{
+    Entity *ret;
+    if ([sender isKindOfClass:[Entity class]]) {
+        ret = sender;
+    } else {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        ret = [self.dataSource selectedObjectAt:indexPath];
+    }
+    return ret;
+}
+
+
+
 #pragma mark - PlacesModelEventTarget
 -(void)willDownload {
     [self.animator startAnimation];
@@ -55,6 +68,20 @@
 -(void)needsReload {
     [self.tableView reloadData];
 }
+
+#pragma mark - MapViewControllerDelegate
+-(NSArray *)annotations{
+    return [self.dataSource allObjects];
+}
+
+-(UIViewController *)viewControllerWithSegue{
+    return self;
+}
+
+-(NSString *)segueId{
+    return @"segue";
+}
+
 
 #pragma mark - Table view data source
 
