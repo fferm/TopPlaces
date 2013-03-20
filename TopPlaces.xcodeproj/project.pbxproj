@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0B1D187116C46AF200348D1D /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1D187016C46AF200348D1D /* Place.m */; };
 		0B1D187516C9450100348D1D /* UserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1D187416C9450000348D1D /* UserDefaultsManager.m */; };
-		0B1D187C16CAF8E300348D1D /* TopPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1D187B16CAF8E300348D1D /* TopPlacesTableViewController.m */; };
 		0B1D187F16CD986C00348D1D /* TopPlacesPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1D187E16CD986B00348D1D /* TopPlacesPhotosTableViewController.m */; };
 		0B3C89FF16B5C95600FB35BC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3C89FE16B5C95600FB35BC /* UIKit.framework */; };
 		0B3C8A0116B5C95600FB35BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3C8A0016B5C95600FB35BC /* Foundation.framework */; };
@@ -39,6 +38,7 @@
 		536C382A16EF0905006C6473 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 536C382916EF0905006C6473 /* .gitignore */; };
 		53A1A91016EAADDA00466A05 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1A90F16EAADDA00466A05 /* Entity.m */; };
 		53A1A91316EAAEB300466A05 /* EntityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A1A91216EAAEB300466A05 /* EntityModel.m */; };
+		53B8B01816FA769200D508B5 /* TopPlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1D187B16CAF8E300348D1D /* TopPlacesTableViewController.m */; };
 		53C6ABD416E95060002F5A90 /* PlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C6ABD316E95060002F5A90 /* PlacesModel.m */; };
 		53C6ABD816E95A5B002F5A90 /* PhotosModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C6ABD716E95A5B002F5A90 /* PhotosModel.m */; };
 /* End PBXBuildFile section */
@@ -66,7 +66,7 @@
 		0B3C8A1216B5C95600FB35BC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0B3C8A1416B5C95600FB35BC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0B3C8A1716B5C95600FB35BC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
-		0B3C8A1A16B5C95600FB35BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
+		0B3C8A1A16B5C95600FB35BC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		0B3C8A2416B5C9F500FB35BC /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		0B3C8A2516B5C9F500FB35BC /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		0B3C8A2616B5C9F500FB35BC /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
@@ -226,8 +226,8 @@
 		0B3C8A0416B5C95600FB35BC /* TopPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				5300088616EE946700C0CB04 /* Storage */,
 				0BFC44F616DAAD71007F170C /* Notepad.txt */,
+				5300088616EE946700C0CB04 /* Storage */,
 				0B1D187916CAF81F00348D1D /* Controller */,
 				0B1D187216C9292400348D1D /* Storyboards */,
 				0B1D186D16C46AA300348D1D /* Flickr */,
@@ -369,7 +369,6 @@
 				0BC34CB416C319F300C3420A /* Photo.m in Sources */,
 				0B1D187116C46AF200348D1D /* Place.m in Sources */,
 				0B1D187516C9450100348D1D /* UserDefaultsManager.m in Sources */,
-				0B1D187C16CAF8E300348D1D /* TopPlacesTableViewController.m in Sources */,
 				0B1D187F16CD986C00348D1D /* TopPlacesPhotosTableViewController.m in Sources */,
 				0BD8646F16D66AF000946EA1 /* Animator.m in Sources */,
 				0BFC44EE16D6B8C1007F170C /* MapViewController.m in Sources */,
@@ -379,6 +378,7 @@
 				53A1A91316EAAEB300466A05 /* EntityModel.m in Sources */,
 				532C15E716ED3DEC006A976F /* RecentPhotosModel.m in Sources */,
 				5300088916EE94AD00C0CB04 /* PhotoImageStorageManager.m in Sources */,
+				53B8B01816FA769200D508B5 /* TopPlacesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
