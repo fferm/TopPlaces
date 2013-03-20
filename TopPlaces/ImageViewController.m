@@ -30,6 +30,16 @@
     return _animator;
 }
 
+- (void)sizeImage:(UIImage *)image {
+    // Configure sizes
+    self.scrollView.contentSize = self.imageView.image.size;
+    CGRect zoomRect = CGRectMake(0.0,
+                                 0.0,
+                                 self.scrollView.contentSize.width,
+                                 self.scrollView.contentSize.height);
+    [self.scrollView zoomToRect:zoomRect animated:NO];
+}
+
 - (void)setUpImage {
     // Configure scrollView
     self.scrollView.delegate = self;
@@ -45,15 +55,9 @@
 
         dispatch_async(dispatch_get_main_queue(), ^{
             self.imageView = [[UIImageView alloc] initWithImage:image];
-            [self.scrollView addSubview:self.imageView];
-            
-            // Configure sizes
-            self.scrollView.contentSize = self.imageView.image.size;
-            CGRect zoomRect = CGRectMake(0.0,
-                                         0.0,
-                                         self.scrollView.contentSize.width,
-                                         self.scrollView.contentSize.height);
-            [self.scrollView zoomToRect:zoomRect animated:NO];
+            [self.scrollView addSubview:_imageView];
+
+            [self sizeImage:image];
             [self.animator hideAnimation];
             
             [UserDefaultsManager addPhotoIfNotAlreadyPresent:self.photo];
@@ -63,6 +67,10 @@
 
 -(void)setUpNavigationBar {
     self.title = self.photo.title;;
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [self sizeImage:self.photo.image];
 }
 
 -(void)viewDidLoad {
